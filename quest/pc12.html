@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduQuest - Branch &amp; Chapter Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    :root {
+      --background-color: #0d1117;
+      --glassmorphism-bg: rgba(13, 17, 23, 0.6);
+      --glassmorphism-border: rgba(255, 255, 255, 0.1);
+      --physical-glow-primary: #3b82f6;
+      --physical-glow-secondary: #60a5fa;
+      --physical-glow-transparent: rgba(59, 130, 246, 0.2);
+      --inorganic-glow-primary: #10b981;
+      --inorganic-glow-secondary: #34d399;
+      --inorganic-glow-transparent: rgba(16, 185, 129, 0.2);
+      --organic-glow-primary: #f97316;
+      --organic-glow-secondary: #fb923c;
+      --organic-glow-transparent: rgba(249, 115, 22, 0.2);
+      --text-primary: #ffffff;
+      --text-secondary: #a3b8d0;--primary-glow: var(--physical-glow-primary);
+      --secondary-glow: var(--physical-glow-secondary);
+      --primary-glow-transparent: var(--physical-glow-transparent);
+    }
+    body {
+      background-color: var(--background-color);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      min-height: max(884px, 100dvh);
+    }
+    .popup-container {
+      background: url('https://i.imgur.com/gKCiG2C.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .glassmorphism-panel {
+      background: var(--glassmorphism-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glassmorphism-border);
+    }
+    .glowing-border {
+      position: relative;
+    }
+    .glowing-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: conic-gradient(from 180deg at 50% 50%, var(--glow-start), var(--glow-end), var(--glow-start));
+      z-index: -1;
+      animation: rotate 4s linear infinite;
+    }
+    .glowing-border-physical { --glow-start: var(--physical-glow-primary); --glow-end: var(--physical-glow-secondary); }
+    .glowing-border-inorganic { --glow-start: var(--inorganic-glow-primary); --glow-end: var(--inorganic-glow-secondary); }
+    .glowing-border-organic { --glow-start: var(--organic-glow-primary); --glow-end: var(--organic-glow-secondary); }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .font-poppins {
+      font-family: 'Poppins', sans-serif;
+    }
+    .chapter-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid transparent;
+    }
+    .chapter-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px var(--primary-glow-transparent);
+      border-color: var(--primary-glow);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: var(--primary-glow);
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary-glow);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[var(--background-color)]">
+<div class="fixed inset-0 popup-container flex flex-col items-center justify-center p-4 lg:p-8">
+<div class="glassmorphism-panel w-full h-full max-w-7xl mx-auto rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+<div class="p-4 lg:p-6 flex items-center justify-between border-b border-[var(--glassmorphism-border)] flex-shrink-0">
+<button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<div class="flex items-center gap-2">
+<h2 class="text-[var(--text-primary)] text-xl lg:text-2xl font-poppins font-bold tracking-wider">Select Class</h2>
+<div class="relative">
+<select class="bg-transparent border-0 text-[var(--secondary-glow)] font-bold text-xl lg:text-2xl font-poppins focus:ring-0 appearance-none" style="color: var(--primary-glow)">
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option selected="" value="12">12</option>
+</select>
+</div>
+</div>
+<button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col lg:flex-row flex-grow min-h-0">
+<div class="w-full lg:w-1/4 border-b lg:border-b-0 lg:border-r border-[var(--glassmorphism-border)] p-4 lg:p-6 flex-shrink-0">
+<h3 class="font-poppins font-semibold text-center text-xl mb-6">Select Branch</h3>
+<div class="flex lg:flex-col justify-center lg:justify-start gap-4">
+<div class="glowing-border glowing-border-physical flex-1 lg:flex-none rounded-2xl cursor-pointer">
+<div class="glassmorphism-panel border-transparent h-full p-4 rounded-2xl flex flex-col lg:flex-row items-center gap-4 text-center lg:text-left">
+<span class="text-5xl" style="color: var(--physical-glow-secondary);">⚗</span>
+<div>
+<p class="font-poppins text-base font-semibold text-[var(--text-primary)]">Physical</p>
+<p class="hidden lg:block text-xs text-[var(--text-secondary)]">Kinetics, Solutions...</p>
+</div>
+</div>
+</div>
+<div class="glassmorphism-panel flex-1 lg:flex-none p-4 rounded-2xl border border-[var(--glassmorphism-border)] cursor-pointer hover:border-[var(--inorganic-glow-primary)] transition-all">
+<div class="flex flex-col lg:flex-row items-center gap-4 text-center lg:text-left">
+<span class="text-5xl" style="color: var(--inorganic-glow-secondary);">🔬</span>
+<div>
+<p class="font-poppins text-base font-semibold text-[var(--text-primary)]">Inorganic</p>
+<p class="hidden lg:block text-xs text-[var(--text-secondary)]">d-Block, f-Block...</p>
+</div>
+</div>
+</div>
+<div class="glassmorphism-panel flex-1 lg:flex-none p-4 rounded-2xl border border-[var(--glassmorphism-border)] cursor-pointer hover:border-[var(--organic-glow-primary)] transition-all">
+<div class="flex flex-col lg:flex-row items-center gap-4 text-center lg:text-left">
+<span class="text-5xl" style="color: var(--organic-glow-secondary);">🧪</span>
+<div>
+<p class="font-poppins text-base font-semibold text-[var(--text-primary)]">Organic</p>
+<p class="hidden lg:block text-xs text-[var(--text-secondary)]">Alcohols, Amines...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-grow p-4 lg:p-6 flex flex-col min-h-0">
+<div class="flex justify-between items-center mb-6 flex-shrink-0">
+<h3 class="text-2xl lg:text-3xl font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--physical-glow-secondary)] to-blue-200">Physical Chemistry</h3>
+<button class="text-sm text-[var(--primary-glow)] font-semibold hidden lg:block">Back to Branches</button>
+</div>
+<div class="space-y-4 overflow-y-auto custom-scrollbar pr-2 flex-grow">
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Solid State</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Classification of solids, unit cell, packing efficiency, and imperfections.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)] flex-wrap">
+<button class="text-xs font-semibold bg-[var(--primary-glow)] hover:bg-[var(--secondary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">info</span>Quick Info</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Solutions</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Types of solutions, colligative properties, Raoult's law, and abnormal molar mass.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)] flex-wrap">
+<button class="text-xs font-semibold bg-[var(--primary-glow)] hover:bg-[var(--secondary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">info</span>Quick Info</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Electrochemistry</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Redox reactions, Nernst equation, electrolytic cells, and corrosion.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)] flex-wrap">
+<button class="text-xs font-semibold bg-[var(--primary-glow)] hover:bg-[var(--secondary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">info</span>Quick Info</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Chemical Kinetics</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Rate of reaction, factors affecting rates, integrated rate equations, and collision theory.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)] flex-wrap">
+<button class="text-xs font-semibold bg-[var(--primary-glow)] hover:bg-[var(--secondary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">info</span>Quick Info</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Surface Chemistry</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Adsorption, catalysis, colloids, and emulsions.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)] flex-wrap">
+<button class="text-xs font-semibold bg-[var(--primary-glow)] hover:bg-[var(--secondary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">info</span>Quick Info</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

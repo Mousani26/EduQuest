@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flags Quiz — EduQuest Game</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
+      --success:#10b981; --danger:#ef4444; --glass: rgba(255,255,255,0.03);
+      --w:900px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.06), transparent),
+                  radial-gradient(900px 500px at 90% 90%, rgba(16,185,129,0.03), transparent),
+                  var(--bg); 
+      color:#e6eef6;
+      padding:24px;
+    }
+    .app{
+      width:min(98%, var(--w)); background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:16px; padding:20px; box-shadow: 0 10px 30px rgba(2,6,23,0.6); overflow:hidden;
+      display:grid; gap:18px;
+      grid-template-columns: 320px 1fr;
+    }
+
+    /* LEFT PANEL: controls + stats */
+    .panel{
+      background:var(--card); padding:18px; border-radius:12px; min-height:420px;
+    }
+    h1{font-size:20px;margin:0 0 8px}
+    .subtitle{color:var(--muted); font-size:13px; margin-bottom:10px}
+    label{display:block; font-size:13px; margin:12px 0 6px; color:var(--muted)}
+    select, button, .btn {
+      width:100%; padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); color:inherit;
+      font-weight:600; cursor:pointer;
+    }
+    .tiny{font-size:13px; padding:8px}
+    .stat-row{display:flex; gap:8px; margin-top:12px}
+    .stat{flex:1; background:var(--glass); padding:12px; border-radius:10px; text-align:center}
+    .stat .n{font-size:20px; font-weight:700}
+    .controls{margin-top:12px}
+    .hint{font-size:13px; color:var(--muted); margin-top:8px}
+
+    /* MAIN PANEL: game area */
+    .game{
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+      border-radius:12px; padding:20px; min-height:420px; display:flex; flex-direction:column;
+    }
+    .topbar{display:flex; justify-content:space-between; gap:12px; align-items:center}
+    .score{font-weight:700}
+    .flag-area{
+      margin:18px auto; width:320px; height:210px; border-radius:12px; overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); box-shadow: inset 0 6px 18px rgba(0,0,0,0.35);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .flag-area img{max-width:100%; max-height:100%; display:block; object-fit:cover}
+    .question{ text-align:center; margin-top:8px; font-size:18px}
+    .options{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px}
+    .opt{
+      background:var(--glass); padding:12px; border-radius:10px; text-align:center; cursor:pointer;
+      border:2px solid transparent; user-select:none; font-weight:600;
+    }
+    .opt.correct{border-color:var(--success); box-shadow:0 6px 20px rgba(16,185,129,0.08)}
+    .opt.wrong{border-color:var(--danger); opacity:0.9}
+    .opt.disabled{pointer-events:none; opacity:0.7}
+    .footer{margin-top:auto; display:flex; gap:12px; align-items:center}
+    .small{font-size:13px; color:var(--muted)}
+
+    /* modal */
+    .modal-back{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.6)}
+    .modal{background:var(--card); padding:18px; border-radius:12px; width:min(420px,95%); color:inherit}
+    .modal h2{margin:0 0 8px}
+    .badge{display:inline-block; background:var(--accent); color:#022; padding:6px 10px; border-radius:999px; margin-top:8px; font-weight:800}
+
+    /* responsive */
+    @media (max-width:900px){
+      .app{grid-template-columns:1fr; padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="app" role="application" aria-label="Flags quiz">
+    <!-- LEFT -->
+    <div class="panel">
+      <h1>Flags Quiz — EduQuest</h1>
+      <div class="subtitle">Test your knowledge. Choose region & difficulty, then press Start.</div>
+
+      <label for="region">Region</label>
+      <select id="region" aria-label="Select region">
+        <option value="All">All Regions</option>
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="North America">North America</option>
+        <option value="Oceania">Oceania</option>
+        <option value="South America">South America</option>
+      </select>
+
+      <label for="difficulty">Difficulty (choices)</label>
+      <select id="difficulty" aria-label="Select difficulty">
+        <option value="2">2 options</option>
+        <option value="4" selected>4 options</option>
+        <option value="6">6 options</option>
+        <option value="8">8 options</option>
+      </select>
+
+      <div class="controls">
+        <button id="startBtn" class="tiny">Start Game ▶</button>
+        <div class="hint">Tip: use difficulty 8 for a real challenge!</div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="small">Score</div>
+          <div id="score" class="n">0</div>
+        </div>
+        <div class="stat">
+          <div class="small">Rounds</div>
+          <div id="rounds" class="n">0</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="small">XP & Badges</div>
+        <div style="margin-top:8px">
+          <div id="xp" class="badge">XP 0</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="small">About: This web game uses public country/flag data (REST Countries + FlagCDN).</div>
+    </div>
+
+    <!-- RIGHT: GAME -->
+    <div class="game">
+      <div class="topbar">
+        <div>
+          <div class="small">Mode: <span id="modeLabel">Not started</span></div>
+          <div class="score" id="scoreTop">Score: 0</div>
+        </div>
+        <div>
+          <button id="nextBtn" class="tiny" style="display:none">Next ▶</button>
+        </div>
+      </div>
+
+      <div class="flag-area" id="flagArea" aria-live="polite">
+        <div class="small">Press Start to begin</div>
+      </div>
+
+      <div class="question" id="question">Which country does this flag belong to?</div>
+
+      <div class="options" id="options"></div>
+
+      <div class="footer">
+        <div class="small">Round <span id="curRound">0</span></div>
+        <div style="flex:1"></div>
+        <div class="small">Correct: <span id="correctCount">0</span> | Wrong: <span id="wrongCount">0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <div id="modalBack" class="modal-back" role="dialog" aria-modal="true">
+    <div class="modal" id="modal">
+      <h2 id="modalTitle">Results</h2>
+      <p id="modalBody"></p>
+      <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
+        <button id="closeModal" class="tiny">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Flags Quiz — single-file JavaScript
+  // Data sources: REST Countries API (https://restcountries.com/v3.1/all) and FlagCDN (https://flagcdn.com)
+  // The game loads country list, filters by region, and plays multiple-choice rounds.
+
+  const state = {
+    countries: [],         // loaded full list
+    pool: [],              // filtered by region
+    current: null,         // current correct country object
+    options: [],           // options for current round
+    score: 0,
+    rounds: 0,
+    correct: 0,
+    wrong: 0,
+    xp: 0,
+    difficulty: 4,
+    region: 'All',
+    gameActive: false
+  };
+
+  // UI references
+  const regionEl = document.getElementById('region');
+  const difficultyEl = document.getElementById('difficulty');
+  const startBtn = document.getElementById('startBtn');
+  const flagArea = document.getElementById('flagArea');
+  const optionsEl = document.getElementById('options');
+  const nextBtn = document.getElementById('nextBtn');
+  const scoreEl = document.getElementById('score');
+  const xpEl = document.getElementById('xp');
+  const roundsEl = document.getElementById('rounds');
+  const curRoundEl = document.getElementById('curRound');
+  const correctCountEl = document.getElementById('correctCount');
+  const wrongCountEl = document.getElementById('wrongCount');
+  const modeLabel = document.getElementById('modeLabel');
+  const scoreTop = document.getElementById('scoreTop');
+  const modalBack = document.getElementById('modalBack');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  const closeModal = document.getElementById('closeModal');
+
+  // Utility: shuffle array
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+    return arr;
+  }
+
+  // Build flag URL using FlagCDN (country cca2 code required, lowercase)
+  function flagUrl(cca2){
+    if(!cca2) return '';
+    return https://flagcdn.com/w320/${cca2.toLowerCase()}.png;
+  }
+
+  // Load countries from REST Countries API (only necessary fields)
+  async function loadCountries(){
+    try{
+      const url = 'https://restcountries.com/v3.1/all?fields=name,flags,region,cca2';
+      const res = await fetch(url);
+      if(!res.ok) throw new Error('Failed to fetch countries');
+      const data = await res.json();
+      // normalize: only keep entries with cca2 and name.common
+      state.countries = data
+        .filter(c => c.cca2 && c.name && c.name.common && c.flags)
+        .map(c => ({
+          name: c.name.common,
+          region: c.region || 'Unknown',
+          cca2: c.cca2,
+          flagUrl: (c.cca2) ? flagUrl(c.cca2) : (c.flags && c.flags.png) ? c.flags.png : ''
+        }));
+      // sort by name
+      state.countries.sort((a,b)=> a.name.localeCompare(b.name));
+      console.log('Loaded countries:', state.countries.length);
+    }catch(err){
+      console.error(err);
+      showModal('Network error', 'Could not load country data. Check your internet connection and try again.');
+    }
+  }
+
+  // Filter pool by region
+  function setPool(region){
+    state.region = region;
+    if(region === 'All'){
+      state.pool = [...state.countries];
+    } else {
+      state.pool = state.countries.filter(c => c.region === region);
+    }
+    // if filtered pool too small, fallback to all
+    if(state.pool.length < 8) {
+      // keep variety: fall back to all if region has too few entries
+      state.pool = [...state.countries];
+    }
+  }
+
+  // Start a game
+  function startGame(){
+    const diff = parseInt(difficultyEl.value,10) || 4;
+    state.difficulty = diff;
+    setPool(regionEl.value);
+    state.score = 0; state.rounds = 0; state.correct = 0; state.wrong = 0; state.xp = 0;
+    state.gameActive = true;
+    updateStats();
+    modeLabel.textContent = ${state.region} • ${state.difficulty} options;
+    nextRound();
+    startBtn.textContent = 'Restart';
+  }
+
+  // End game
+  function endGame(){
+    state.gameActive = false;
+    showModal('Game over', Rounds: ${state.rounds}\nScore: ${state.score}\nXP: ${state.xp}\nCorrect: ${state.correct}\nWrong: ${state.wrong});
+    startBtn.textContent = 'Start Game ▶';
+    modeLabel.textContent = 'Not started';
+    flagArea.innerHTML = '<div class="small">Press Start to begin</div>';
+    optionsEl.innerHTML = '';
+  }
+
+  // Next round logic
+  function nextRound(){
+    if(!state.gameActive) return;
+    const pool = [...state.pool];
+    if(pool.length === 0){
+      showModal('No countries', 'No countries available for this region/difficulty. Try All Regions.');
+      return;
+    }
+    // pick the correct country randomly
+    const correctIndex = Math.floor(Math.random()*pool.length);
+    const correctCountry = pool.splice(correctIndex,1)[0];
+
+    // pick (difficulty-1) distractors
+    shuffle(pool);
+    const numOpts = Math.min(state.difficulty, Math.min(state.countries.length, 8));
+    const distractors = pool.slice(0, numOpts - 1);
+
+    const options = shuffle([correctCountry, ...distractors]).map(o => ({name:o.name, cca2:o.cca2, flagUrl:o.flagUrl}));
+    state.current = correctCountry;
+    state.options = options;
+    state.rounds += 1;
+    renderRound();
+    updateStats();
+  }
+
+  // Render current round
+  function renderRound(){
+    // flag
+    flagArea.innerHTML = '';
+    const img = document.createElement('img');
+    img.alt = "Country flag";
+    img.loading = 'lazy';
+    img.src = state.current.flagUrl || '';
+    img.onerror = () => {
+      // fallback to an emoji-based placeholder
+      flagArea.innerHTML = '<div style="font-size:18px;color:var(--muted);">Flag not available</div>';
+    };
+    flagArea.appendChild(img);
+
+    // question text (keeps generic to avoid giving away)
+    document.getElementById('question').textContent = Which country does this flag belong to?;
+
+    // options
+    optionsEl.innerHTML = '';
+    state.options.forEach(opt => {
+      const b = document.createElement('div');
+      b.className = 'opt';
+      b.tabIndex = 0;
+      b.role = 'button';
+      b.textContent = opt.name;
+      b.dataset.cca2 = opt.cca2;
+      b.addEventListener('click', onOptionClick);
+      b.addEventListener('keydown', (e)=>{ if(e.key==='Enter') onOptionClick(e); });
+      optionsEl.appendChild(b);
+    });
+
+    // UI toggles
+    nextBtn.style.display = 'none';
+    curRoundEl.textContent = state.rounds;
+  }
+
+  // Option clicked
+  function onOptionClick(e){
+    if(!state.gameActive) return;
+    const target = e.currentTarget;
+    const selected = target.textContent;
+    // disable all options
+    const children = Array.from(optionsEl.children);
+    children.forEach(ch => ch.classList.add('disabled'));
+    // check
+    if(selected === state.current.name){
+      // correct
+      target.classList.add('correct');
+      state.score += 10;
+      state.correct += 1;
+      state.xp += 15;
+      showFeedback(true);
+    } else {
+      target.classList.add('wrong');
+      // highlight correct option
+      const correctEl = children.find(c => c.textContent === state.current.name);
+      if(correctEl) correctEl.classList.add('correct');
+      state.wrong += 1;
+      state.score = Math.max(0, state.score - 4);
+      state.xp += 5;
+      showFeedback(false);
+    }
+    updateStats();
+    nextBtn.style.display = 'inline-block';
+  }
+
+  // brief feedback animation/message
+  function showFeedback(correct){
+    if(correct){
+      scoreTop.style.color = 'var(--success)';
+    } else {
+      scoreTop.style.color = 'var(--danger)';
+    }
+    setTimeout(()=> scoreTop.style.color = '', 700);
+  }
+
+  // Update stats in UI
+  function updateStats(){
+    scoreEl.textContent = state.score;
+    xpEl.textContent = 'XP ' + state.xp;
+    roundsEl.textContent = state.rounds;
+    correctCountEl.textContent = state.correct;
+    wrongCountEl.textContent = state.wrong;
+    scoreTop.textContent = 'Score: ' + state.score;
+  }
+
+  // Show modal
+  function showModal(title, body){
+    modalTitle.textContent = title;
+    modalBody.textContent = body;
+    modalBack.style.display = 'flex';
+  }
+
+  // Event listeners
+  startBtn.addEventListener('click', async ()=>{
+    if(!state.countries || state.countries.length === 0){
+      await loadCountries();
+    }
+    // if already active, restart
+    if(state.gameActive){
+      // confirm restart
+      const ok = confirm('Restart the game?');
+      if(!ok) return;
+    }
+    startGame();
+  });
+
+  nextBtn.addEventListener('click', ()=>{
+    // end condition example: stop after 15 rounds (you can change)
+    if(state.rounds >= 15){
+      endGame();
+    } else {
+      nextRound();
+    }
+  });
+
+  closeModal.addEventListener('click', ()=>{
+    modalBack.style.display = 'none';
+  });
+
+  // keyboard shortcut: N for next (if visible)
+  window.addEventListener('keydown', (e)=>{
+    if(e.key.toLowerCase() === 'n' && nextBtn.style.display !== 'none'){
+      nextBtn.click();
+    }
+  });
+
+  // On load: fetch countries in background (optional)
+  (async function init(){
+    try{
+      await loadCountries();
+    }catch(e){
+      // handled in loadCountries
+    }
+  })();
+
+  </script>
+</body>
+</html>

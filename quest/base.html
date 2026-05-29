@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #13a4ec;
+        --secondary-color: #0d7ab5;
+        --background-color: #111618;
+        --surface-color: #1c2327;
+        --muted-color: #9db0b9;
+      }
+      .flip-card {
+        perspective: 1000px;
+      }
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+      }
+      .flip-card-back {
+        transform: rotateY(180deg);
+        background-size: cover;
+        background-position: center;
+      }
+      .flip-card-back .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[var(--background-color)]">
+<div class="relative flex size-full min-h-screen flex-col dark justify-between group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-[var(--background-color)]/80 backdrop-blur-sm">
+<div class="flex items-center p-4 pb-2 justify-between">
+<button class="text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-[var(--surface-color)] transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Bases</h2>
+</div>
+</header>
+<main class="p-4">
+<div class="text-center mb-6">
+<div class="inline-block relative">
+<span class="material-symbols-outlined text-[var(--primary-color)] text-6xl -translate-x-2 translate-y-3">science</span>
+<div class="absolute top-0 right-0 animate-ping">
+<span class="material-symbols-outlined text-blue-300 text-lg">bubble</span>
+</div>
+<div class="absolute bottom-0 left-0 animate-ping delay-200">
+<span class="material-symbols-outlined text-blue-400 text-sm">bubble</span>
+</div>
+</div>
+<h1 class="text-white tracking-tight text-3xl font-bold leading-tight mt-2">Bases: The Bitter &amp; Slippery Compounds</h1>
+</div>
+<div class="mb-6 rounded-xl overflow-hidden">
+<div class="w-full bg-center bg-no-repeat bg-cover aspect-video" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJTIELmUTm8B_r-VAEKY40nRPBdRTSezC45qJMEAQJjJI5w10QS4gbnR9GjNL0w-nPNuKnbPtOuxDFjoc9SqR8hOEt4MltfzOo2-E6NhoIn_Axj7_d1xIut8Ny9QATAn5gGoJHABUHaQj9orypnjpaYh5XhAmreRKhWcVw6e-GBAIV6pMH8MPFSDYUxxIJkZhPddJSHrMq5dWLdxlWBtxJexeyR_zzh0JrfpyyOJw1iZe85VPtmnvy_D2Wqi1wLrN_Bnz8LZhucImR");'></div>
+<div class="bg-[var(--surface-color)] p-4">
+<p class="text-white text-base font-normal leading-relaxed">
+                        Bases are substances that accept H⁺ protons or donate OH⁻ ions. They neutralize acids to form salts and water.
+                    </p>
+</div>
+</div>
+<section class="mb-8">
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Learn Bases the Fun Way!</h2>
+<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden -mx-4 px-4 gap-4">
+<div class="flex-shrink-0 w-3/4 aspect-[3/4] flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front bg-[var(--surface-color)]">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)] mb-2">battery_horiz_075</span>
+<p class="text-white text-base font-medium">"Little Naughty Kids Really Can Sing Beautifully"</p>
+</div>
+<div class="flip-card-back" style='background-image: url("https://lh3.googleusercontent.com/pw/ADCreHc5j5q7J4d7L2f6j0g5S0F9t5N2v3m7C2i8Q1s0W6Z0N4E1z8H8S6R5C5N0Q8V8I6Y4H3O1P7D6B9A9W9U8S7V6E5D4C3B2A1_g=w1000")'>
+<div class="overlay">
+<p class="text-white text-sm font-semibold">LiOH (battery), NaOH (soap), KOH (button battery), RbOH (flask/lab), Ca(OH)₂ (chalk/lime water), Sr(OH)₂ (fireworks), Ba(OH)₂ (glass beaker)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-3/4 aspect-[3/4] flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front bg-[var(--surface-color)]">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)] mb-2">science</span>
+<p class="text-white text-base font-medium">"All Men Need Milk"</p>
+</div>
+<div class="flip-card-back" style='background-image: url("https://lh3.googleusercontent.com/pw/ADCreHf5h4k2i1j0g9h8g7f6e5d4c3b2a1a9f8e7d6c5b4a3a2a1_k=w1000")'>
+<div class="overlay">
+<p class="text-white text-sm font-semibold">NH₄OH (floor cleaner), Mg(OH)₂ (milk of magnesia), Ni(OH)₂ (nickel coin), Mn(OH)₂ (rusty tool)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-3/4 aspect-[3/4] flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front bg-[var(--surface-color)]">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)] mb-2">water_drop</span>
+<p class="text-white text-base font-medium">"Blue Slippery Bitter Neutralizers"</p>
+</div>
+<div class="flip-card-back" style='background-image: url("https://lh3.googleusercontent.com/pw/ADCreHe4g3i2j1k0i1g9h8g7f6e5d4c3b2a1a9f8e7d6c5b4a3_h=w1000")'>
+<div class="overlay">
+<p class="text-white text-sm font-semibold">Blue litmus, soapy hands, bitter gourd, salt + water glass</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-3/4 aspect-[3/4] flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front bg-[var(--surface-color)]">
+<span class="material-symbols-outlined text-4xl text-[var(--primary-color)] mb-2">cleaning_services</span>
+<p class="text-white text-base font-medium">"So Clean And Balanced"</p>
+</div>
+<div class="flip-card-back" style='background-image: url("https://lh3.googleusercontent.com/pw/ADCreHc3b2a1a9f8e7d6c5b4a3a2a1b0c9d8e7f6g5h4i3j2k1_j=w1000")'>
+<div class="overlay">
+<p class="text-white text-sm font-semibold">Soap bubbles, spray bottle, antacid tablets, alkaline battery</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">General Properties</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col items-center justify-center gap-2 bg-[var(--surface-color)] p-4 rounded-lg text-center">
+<img alt="Bitter Gourd Icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTU5xL7v6XbI5J6R7z8h8h5p7n9V3k4e2u1A9F4j5k5q3p2c1n4b4g3i2j1k0i1g9h8g7f6e5d4c3b2a1a9f"/>
+<p class="text-white text-sm font-medium leading-normal">Bitter Taste</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 bg-[var(--surface-color)] p-4 rounded-lg text-center">
+<img alt="Soapy Hand Icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1G2H3I4J5K6L7M8N9O0P1Q2R3S4T5U6V7W8X9Y0Z-A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P"/>
+<p class="text-white text-sm font-medium leading-normal">Slippery Feel</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 bg-[var(--surface-color)] p-4 rounded-lg text-center">
+<img alt="Litmus Paper Icon" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuE0F1G2H3I4J5K6L7M8N9O0P1Q2R3S4T5U6V7W8X9Y0Z-A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P"/>
+<p class="text-white text-sm font-medium leading-normal">Turns Red Litmus Blue</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 bg-[var(--surface-color)] p-4 rounded-lg text-center">
+<span class="material-symbols-outlined text-[var(--primary-color)] text-4xl">electrical_services</span>
+<p class="text-white text-sm font-medium leading-normal">Conducts Electricity</p>
+</div>
+<div class="col-span-2 flex flex-col items-center justify-center gap-2 bg-[var(--surface-color)] p-4 rounded-lg text-center">
+<span class="material-symbols-outlined text-[var(--primary-color)] text-4xl">science</span>
+<p class="text-white text-sm font-medium leading-normal">Reacts with Acids</p>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Classification</h2>
+<div class="flex justify-center mb-4">
+<div class="flex w-full max-w-sm items-center justify-center rounded-full bg-[var(--surface-color)] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 py-1.5 has-[:checked]:bg-[var(--primary-color)] has-[:checked]:text-white text-[var(--muted-color)] text-sm font-bold leading-normal transition-colors">
+<span class="truncate">Strong Bases</span>
+<input checked="" class="invisible w-0" name="base_classification" type="radio" value="Strong Bases"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 py-1.5 has-[:checked]:bg-[var(--primary-color)] has-[:checked]:text-white text-[var(--muted-color)] text-sm font-bold leading-normal transition-colors">
+<span class="truncate">Weak Bases</span>
+<input class="invisible w-0" name="base_classification" type="radio" value="Weak Bases"/>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2 items-center justify-center text-center rounded-lg bg-[var(--surface-color)] p-4">
+<span class="material-symbols-outlined text-3xl text-green-400">battery_full_alt</span>
+<h3 class="text-white text-base font-bold leading-tight">NaOH</h3>
+</div>
+<div class="flex flex-col gap-2 items-center justify-center text-center rounded-lg bg-[var(--surface-color)] p-4">
+<span class="material-symbols-outlined text-3xl text-green-400">soap</span>
+<h3 class="text-white text-base font-bold leading-tight">KOH</h3>
+</div>
+<div class="flex flex-col gap-2 items-center justify-center text-center rounded-lg bg-[var(--surface-color)] p-4">
+<span class="material-symbols-outlined text-3xl text-green-400">water_drop</span>
+<h3 class="text-white text-base font-bold leading-tight">Ca(OH)₂</h3>
+</div>
+<div class="flex flex-col gap-2 items-center justify-center text-center rounded-lg bg-[var(--surface-color)] p-4">
+<span class="material-symbols-outlined text-3xl text-green-400">science</span>
+<h3 class="text-white text-base font-bold leading-tight">Ba(OH)₂</h3>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Real-Life Examples</h2>
+<div class="space-y-3">
+<div class="flex items-center gap-4 bg-[var(--surface-color)] p-3 rounded-lg">
+<img alt="Soap Making" class="size-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY037_azMVYhcSl2Avnmw4snOHfuLCyhHH59P8TKSxKs3TSFWVOOTrNBjNguJvrhqKszXaMCFq_GTe0rNpmhVks4WcMrrFjtHXbsDomf7YGqsUK02S8MGDonvw4cE0EjhfiEfTsizqvqtKgU_OwXZhzEzH4igSi7jySVPDKIqsFXwpAQ7ag5MrrGba0dI9vn9oiWzrKpU6XVz9pVN7gm-bm5JZ28vLQ25KGuv95r6JrENKihlUQ5UaxwyYPHaSoBf2SyrUQaMfqUaw"/>
+<div>
+<p class="text-white text-base font-bold">NaOH</p>
+<p class="text-[var(--muted-color)] text-sm">Used in soap making</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-[var(--surface-color)] p-3 rounded-lg">
+<img alt="Battery" class="size-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqq4uioLcuuSOweZ9lxlyoNRBfPbLZJr_OhAdE2eF69FCd-Df2FqLRoT8AY0Dn01uFN2UjcXEnRQgZmX4dEUH4kJy7Ik0O6e8sMgTexcV-c3dVp8wk0wgXtzgVQWdpNm8jM6WzQ3cmUEYOJWu9rKn_PHjZGDBog8kd4VBT5Ole1nAB3o8qK9aVmmEKzwTywG0ERndxdJk2zTD1TfG3_nHMqyfBr1F124EFnRfm5LdpilexuyoKVqH7AutA6Ej_CuiDe3dJVCwAtwex"/>
+<div>
+<p class="text-white text-base font-bold">KOH</p>
+<p class="text-[var(--muted-color)] text-sm">Used in batteries</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-[var(--surface-color)] p-3 rounded-lg">
+<img alt="Floor Cleaner" class="size-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJeGaMSS8hymQoV0mRG4tzXmqLZU4FUWcb0QS09U6Uo2ejhtmEaxw_UJ3CUpRydpEOjQ8JfONBt3AdD_WcUaLiRYMGiCrS2P9muWMGZLHBbdCPwf605ksBkKnf8FnmFZMi96k-6cWfqdNoL2VGNUv3GTA0870nRsu3HC99SnXJdKSrYzrQYDmjL0lrqkfCFla_LT2eMbDmVeRo09MUy1tbf32AQ0t2KGJm4S4fR0xMuDd0G2p3oGeTPK6c1cc5qQboeFMPq958UvqB"/>
+<div>
+<p class="text-white text-base font-bold">NH₄OH</p>
+<p class="text-[var(--muted-color)] text-sm">Used in floor cleaners</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-[var(--surface-color)] p-3 rounded-lg">
+<img alt="Antacid" class="size-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSmL14U96R6SbQp1_qQRMaSA6uKFr1luVeLGa2v1DWXsiLsagRLJuwTC1KYnJmEWxyInBXUfdl6G0ayqTeTK7vzIkSNHRqGURe-GaUKZAB0iTRmkFHCNZvG88qumII_cURq2sHS0NqByn7ZzeF5YQ8B9KefVnerDH43wJHYAQl8tKFP0VCqT5UbaTbJaMoZJj424ts5Nc9nWlER39pcGnHdBaa9kS7qqhPT2K_8oOd9S1CEvYjco3B5qL2ssGhqwAaj49ieGKa21Pf"/>
+<div>
+<p class="text-white text-base font-bold">Mg(OH)₂</p>
+<p class="text-[var(--muted-color)] text-sm">Used in antacids</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Applications Carousel</h2>
+<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden -mx-4 px-4 gap-4">
+<div class="flex-shrink-0 w-3/4 flex flex-col gap-2">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvbxd2Pd-U3wh-NRr8S6jUijPGz7NS7sw_md5tmaa4uEmAWcq_Gnkm2ZZr9rUPmuJM3vMpYrbfp0hMg7KkMJ2G0K3UufVIR9-NlmTlD5-S9mhZl2THhpNxk--kPFePuyjx0kmOu6rljLfcwrYWCw99j8sQYJFT-xqFNYE606kEZ1qTFOpZdGeJFB3-aA7mLZSNh5Up1NILwZM-BppWuLmWS0PpqdsUQwb0rXy2uRr7ntsxc1Y9IMaNn59vlZcFZOXgSqn0w47Viq9E")'></div>
+<div>
+<p class="text-white font-semibold">Neutralizing Soil</p>
+<p class="text-[var(--muted-color)] text-sm">Bases can neutralize acidic soil</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-3/4 flex flex-col gap-2">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvUaHbcr6C8h-e6dDInPLO6ferH40A7i6DVAd3bT2C-uthyTTP3Wa2fAkN4IQAWRZAg6XowXgbsW-IiAx_qsGa6hEORCZzrDCf8JPxqt3p9TRXXZKnXh0QIka8X8Kzb-Wk5top_BrV2wOqqLnTBT7bQ-qlF5dEFUTTh2yKEsV9J54_1wKeWhsyAae0QgtW4vR5mbGjep-NSoWEaKegvkUZTXM7YT-OCyZf_jmdnJk2OyIzyipN4A-_Itww869wMF5r4vfJj7Cdspue")'></div>
+<div>
+<p class="text-white font-semibold">Soap Industry</p>
+<p class="text-[var(--muted-color)] text-sm">Bases are used in soap making</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">AR/VR Lab Simulation</h2>
+<div class="space-y-3">
+<a class="flex items-center gap-4 bg-[var(--surface-color)] p-4 rounded-lg hover:bg-opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined text-3xl text-blue-400">biotech</span>
+<p class="text-white font-medium flex-1">Virtual Neutralization Experiment (NaOH + HCl)</p>
+<span class="material-symbols-outlined text-white">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 bg-[var(--surface-color)] p-4 rounded-lg hover:bg-opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined text-3xl text-green-400">soap</span>
+<p class="text-white font-medium flex-1">Soap-Making Virtual Experiment</p>
+<span class="material-symbols-outlined text-white">chevron_right</span>
+</a>
+</div>
+</section>
+<section>
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Quick Summary</h2>
+<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden -mx-4 px-4 gap-4">
+<div class="flex-shrink-0 w-2/3 bg-[var(--surface-color)] rounded-xl p-4">
+<p class="text-[var(--muted-color)] text-sm mb-1">Litmus Test</p>
+<p class="text-white text-3xl font-bold text-blue-400">Blue</p>
+</div>
+<div class="flex-shrink-0 w-2/3 bg-[var(--surface-color)] rounded-xl p-4">
+<p class="text-[var(--muted-color)] text-sm mb-1">Feel</p>
+<p class="text-white text-3xl font-bold text-green-400">Slippery</p>
+</div>
+<div class="flex-shrink-0 w-2/3 bg-[var(--surface-color)] rounded-xl p-4">
+<p class="text-[var(--muted-color)] text-sm mb-1">Taste</p>
+<p class="text-white text-3xl font-bold text-yellow-400">Bitter</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer class="sticky bottom-0 bg-[var(--background-color)]/80 backdrop-blur-sm p-4 border-t border-t-[var(--surface-color)]">
+<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-[var(--secondary-color)] transition-colors">
+<span class="truncate">Test Yourself</span>
+</button>
+</footer>
+</div>
+
+</body></html>

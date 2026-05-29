@@ -1,0 +1,150 @@
+<html><head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+        --primary-color: #13ec13;
+        --dark-bg: #0F172A;
+        --dark-card: #1E293B;
+        --dark-border: #334155;
+        --accent-green: #22c55e;
+        --accent-green-light: #4ade80;
+        --glow-green: 0 0 10px #22c55e, 0 0 20px #22c55e, 0 0 30px #22c55e;
+    }
+    body {
+        background-color: var(--dark-bg);
+        color: #E2E8F0;
+        font-family: 'Inter', sans-serif;
+    }
+    .font-poppins {
+        font-family: 'Poppins', sans-serif;
+    }
+    .glow-green {
+        box-shadow: var(--glow-green);
+    }
+    .glow-text-green {
+        text-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e;
+    }
+    .glassmorphism {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(51, 65, 85, 0.3);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[var(--dark-bg)]">
+<div class="relative flex h-auto min-h-screen w-full flex-col justify-between group/design-root overflow-x-hidden">
+<div class="flex-grow">
+<header class="sticky top-0 z-20 bg-slate-900/50 backdrop-blur-sm border-b border-[var(--dark-border)]">
+<div class="flex items-center p-4 justify-between">
+<div class="flex items-center gap-2">
+<img alt="EduQuest Logo" class="h-8 w-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuFiKCLMyveQMiRW5Z34QOhTsb9e92mr3ln8DWOROE-xo3tchcXU-20vCIjpKpaCuguu6O6IiWpF_zc2gFFUOrSDiCHT4ONY4pcaz_9HFssJkIc8UmeAtYMuDgcYP7XRbnA2Lgl0XX52q6uW5Zwwda9TvH5NrjPlC7K8NYoTV9X3KKEyYe5Fdq_fkwmBobjvF8e_RxEz8qdvhfboRLFtEARFoUXIsIL9W-wd80HHAI_azWCAbJDog-ppPtMuCFlQABsdgIBGi2cwgp"/>
+<h1 class="text-xl font-poppins font-bold text-white">EduQuest</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-white p-2 rounded-full hover:bg-[var(--dark-card)] transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-white p-2 rounded-full hover:bg-[var(--dark-card)] transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-white p-2 rounded-full hover:bg-[var(--dark-card)] transition-colors">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+</div>
+</div>
+<div class="px-4 pb-3">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[var(--accent-green)]">science</span>
+<h2 class="text-white text-lg font-poppins font-semibold">The p-Block Elements (Group 17 &amp; 18)</h2>
+</div>
+<div class="w-full bg-[var(--dark-card)] rounded-full h-2.5">
+<div class="bg-[var(--accent-green)] h-2.5 rounded-full glow-green" style="width: 25%"></div>
+</div>
+<p class="text-xs text-slate-400 mt-1 text-right">25% complete</p>
+</div>
+</header>
+<main class="p-4">
+<div class="bg-[var(--dark-card)] rounded-lg p-4" id="content-viewer">
+<h3 class="text-xl font-poppins font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-[var(--accent-green-light)]">auto_stories</span> Introduction</h3>
+<p class="text-slate-300 text-base leading-relaxed mb-6">
+              The p-block elements, encompassing groups 13 to 18, exhibit diverse properties due to their valence electrons occupying p-orbitals. This section introduces the p-block,
+              highlighting trends in <strong class="text-[var(--accent-green-light)] font-semibold">ionization energy</strong>, <strong class="text-[var(--accent-green-light)] font-semibold">electronegativity</strong>, and <strong class="text-[var(--accent-green-light)] font-semibold">atomic radii</strong>. We'll explore the unique characteristics of each group, from the metalloids in group 13 to
+              the noble gases in group 18, laying the foundation for understanding their chemical behavior.
+            </p>
+<div class="mb-6">
+<h4 class="font-poppins font-semibold text-lg text-white mb-2">Interactive Diagram</h4>
+<div class="w-full bg-center bg-no-repeat bg-cover aspect-video rounded-lg border-2 border-[var(--dark-border)]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQdYR2fyEq-8RUebS3R6mJ63LEM8eshozfskWdWNBFUtvImNDgTs1EH4JMGA71RrI7C5jK6C_LG826GCMfpgKmyH43bAX1NKsXJF11tRiomheZ-AzCUhQchdrR2C8_P4USdY__rDdqPNPHrMWEJ23BloP9uQR3N-h1ujC28uQQwqrWbIjM1KiqA60lTh0wauXO_6YgnEuyVS6n5zdn8CwyKW_4oGbCdNX5HOg3xTzQuUiNi9epDGOVLDUCdp6OQ-pES-Bk9rGIk70y");'>
+</div>
+<p class="text-sm text-slate-400 mt-2">Hover over each element to view its details. Zoom and pan to explore.</p>
+</div>
+<div class="mb-6">
+<h4 class="font-poppins font-semibold text-lg text-white mb-2">Concept Video</h4>
+<div class="relative flex items-center justify-center bg-black aspect-video rounded-lg overflow-hidden border-2 border-[var(--dark-border)]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC064J8AD7qwyvaxYRQYA-5i_l0Ublg1zWJDlmls30JSiQxIbgOy5_LO3LJnnCoFLn8MC5bMH6BHblKgyo25kdaQlDlPDu6R6-2f956hTPuZrN2a7HcCyRvTfDg8Isc4nVkZ8HgHptVKwsCv3C6ioAOf0mEqizny9fpdwJ5qD2mW5aFJtKpLXlXcFeOPEnbPYQAxsVHSkxXS8HiQZCs2i_hTZmUqo2zhLr4gmCIseQKRWaqysH4r_69tXyS-9SfIcIDeC_u25hmGnSa"); background-size: cover; background-position: center;'>
+<div class="absolute inset-0 bg-black/30"></div>
+<button class="relative flex shrink-0 items-center justify-center rounded-full size-16 bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300">
+<span class="material-symbols-outlined text-4xl">play_arrow</span>
+</button>
+</div>
+<p class="text-sm text-slate-400 mt-2">Watch an animation on the filling of p-orbitals.</p>
+</div>
+<div class="bg-slate-900/50 p-4 rounded-lg border border-[var(--dark-border)]">
+<h4 class="font-poppins font-semibold text-lg text-white mb-3">Knowledge Check</h4>
+<label class="block text-slate-300 mb-2" for="fill-in-blank">Fill in the blank:</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white bg-slate-800 border-slate-700 focus:ring-2 focus:ring-[var(--accent-green)] focus:border-[var(--accent-green)] h-14 placeholder:text-slate-500 p-4 text-base font-normal leading-normal transition-all" id="fill-in-blank" placeholder="Type your answer here..." value=""/>
+<p class="text-sm text-slate-400 mt-2">The p-block elements have valence electrons in their ___ orbitals.</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-[var(--dark-card)] hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>Previous</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-sm text-slate-400">Mark as Complete</span>
+<input class="form-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-[var(--accent-green)] focus:ring-[var(--accent-green)] focus:ring-offset-slate-900" type="checkbox"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-slate-900 bg-[var(--accent-green)] hover:bg-[var(--accent-green-light)] transition-colors font-bold shadow-[0_0_15px_rgba(34,197,94,0.5)]">
+<span>Next</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+</div>
+<footer class="sticky bottom-0 z-20">
+<div class="flex items-center justify-between bg-slate-900/80 backdrop-blur-sm border-t border-[var(--dark-border)] p-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<p class="text-xs font-medium">Subtopics</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">memory</span>
+<p class="text-xs font-medium">Mnemonics</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-white bg-[var(--accent-green)]/20 rounded-xl p-2 border border-[var(--accent-green)]/50" href="#">
+<span class="material-symbols-outlined text-[var(--accent-green-light)] glow-text-green">smart_toy</span>
+<p class="text-xs font-bold text-[var(--accent-green-light)]">Ask AI</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">science</span>
+<p class="text-xs font-medium">VR Lab</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<p class="text-xs font-medium">Quiz</p>
+</a>
+</div>
+</footer>
+</div>
+
+</body></html>

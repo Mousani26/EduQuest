@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amino Acid Learning Game</title>
+  <style>
+    :root {
+      --primary: #667eea;
+      --secondary: #764ba2;
+      --success: #28a745;
+      --error: #dc3545;
+      --bg-light: #f8f9fa;
+      --bg-dark: #1e1e2f;
+      --text-light: #fff;
+      --text-dark: #2c3e50;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family:'Segoe UI',sans-serif;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      min-height:100vh;
+      color:var(--text-dark);
+      transition:background 0.5s,color 0.5s;
+    }
+    body.dark {
+      background:var(--bg-dark);
+      color:var(--text-light);
+    }
+    .container {
+      max-width:1200px;margin:20px auto;padding:20px;
+      background:#fff;border-radius:20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.2);
+      transition:background 0.5s,color 0.5s;
+    }
+    body.dark .container{background:#2b2b40;color:var(--text-light);}
+    .header{text-align:center;padding:20px;}
+    .header h1{font-size:2.5rem;margin-bottom:10px;}
+    .header p{opacity:0.8;}
+    .controls,.score-board{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin:15px 0;}
+    .btn{
+      padding:12px 24px;border:none;border-radius:30px;
+      font-weight:bold;cursor:pointer;
+      transition:all 0.3s ease;font-size:1rem;
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;}
+    .btn-secondary{background:#6c757d;color:white;}
+    .btn-toggle{background:#333;color:white;}
+    .btn:hover{transform:scale(1.05);}
+    .score-board .score-item{
+      background:#fff;padding:10px 20px;border-radius:10px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);text-align:center;
+    }
+    body.dark .score-board .score-item{background:#3c3c55;color:white;}
+    .score-number{font-size:1.5rem;font-weight:bold;color:var(--primary);}
+    .progress-bar{width:100%;height:10px;background:#ddd;border-radius:5px;margin:10px 0;}
+    .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#00f2fe);transition:width 0.3s;}
+    table{width:100%;border-collapse:collapse;margin-top:20px;}
+    th,td{padding:10px;text-align:center;border-bottom:1px solid #e9ecef;}
+    th{background:linear-gradient(135deg,var(--primary),#00f2fe);color:white;}
+    tr:nth-child(even){background:#f8f9fa;}
+    tr:hover{background:#e3f2fd;}
+    body.dark tr:nth-child(even){background:#2b2b40;}
+    input[type="text"]{
+      border:2px solid #ccc;border-radius:8px;padding:8px;text-align:center;width:90px;
+      transition:border 0.3s;
+    }
+    input.correct{background:#d4edda;border-color:var(--success);color:#155724;}
+    input.incorrect{background:#f8d7da;border-color:var(--error);color:#721c24;}
+    .notification{
+      position:fixed;top:20px;right:20px;
+      padding:12px 20px;border-radius:10px;
+      font-weight:bold;color:white;opacity:0;
+      transform:translateY(-20px);transition:all 0.4s;
+      z-index:1000;
+    }
+    .notification.show{opacity:1;transform:translateY(0);}
+    .notification.success{background:var(--success);}
+    .notification.error{background:var(--error);}
+    .timer{text-align:center;font-size:1.2rem;margin:10px 0;}
+    @media(max-width:768px){
+      th,td{font-size:0.8rem;padding:6px;}
+      input[type="text"]{width:70px;font-size:0.8rem;}
+      .header h1{font-size:1.8rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🧬 Amino Acid Learning Game</h1>
+      <p>Master amino acid names, peptides, and codes!</p>
+    </div>
+    <div class="controls">
+      <button class="btn btn-primary" onclick="checkAnswers()">Check Answers</button>
+      <button class="btn btn-secondary" onclick="resetGame()">Reset</button>
+      <button class="btn btn-toggle" onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+    </div>
+    <div class="score-board">
+      <div class="score-item"><div class="score-number" id="correct-score">0</div><div>Correct</div></div>
+      <div class="score-item"><div class="score-number" id="total-score">0</div><div>Total</div></div>
+      <div class="score-item"><div class="score-number" id="percentage">0%</div><div>Progress</div></div>
+    </div>
+    <div class="timer">⏱ Time: <span id="timer">60</span>s</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="table-container">
+      <table id="amino-table"><thead>
+        <tr><th>Name</th><th>Peptide</th><th>3-letter</th></tr>
+      </thead><tbody id="table-body"></tbody></table>
+    </div>
+  </div>
+
+  <div id="notification" class="notification"></div>
+
+  <script>
+    const aminoAcids=[
+      {name:'Alanine',peptide:'alanyl',three:'Ala'},
+      {name:'Arginine',peptide:'arginyl',three:'Arg'},
+      {name:'Asparagine',peptide:'asparaginyl',three:'Asn'},
+      {name:'Aspartic acid',peptide:'aspartyl',three:'Asp'},
+      {name:'Cysteine',peptide:'cysteinyl',three:'Cys'},
+      {name:'Glutamine',peptide:'glutaminyl',three:'Gln'},
+      {name:'Glutamic acid',peptide:'glutamyl',three:'Glu'},
+      {name:'Glycine',peptide:'glycyl',three:'Gly'},
+      {name:'Histidine',peptide:'histidyl',three:'His'},
+      {name:'Isoleucine',peptide:'isoleucyl',three:'Ile'},
+      {name:'Leucine',peptide:'leucyl',three:'Leu'},
+      {name:'Lysine',peptide:'lysyl',three:'Lys'},
+      {name:'Methionine',peptide:'methionyl',three:'Met'},
+      {name:'Phenylalanine',peptide:'phenylalanyl',three:'Phe'},
+      {name:'Proline',peptide:'prolyl',three:'Pro'},
+      {name:'Serine',peptide:'seryl',three:'Ser'},
+      {name:'Threonine',peptide:'threonyl',three:'Thr'},
+      {name:'Tryptophan',peptide:'tryptophyl',three:'Trp'},
+      {name:'Tyrosine',peptide:'tyrosyl',three:'Tyr'},
+      {name:'Valine',peptide:'valyl',three:'Val'}
+    ];
+    let timer=60,interval;
+
+    function initializeGame(){
+      const tableBody=document.getElementById('table-body');
+      tableBody.innerHTML='';
+      aminoAcids.forEach((aa)=>{
+        const row=document.createElement('tr');
+        row.innerHTML=`
+          <td>${Math.random()>0.5?aa.name:`<input type="text" data-answer="${aa.name}">`}</td>
+          <td>${Math.random()>0.5?aa.peptide:`<input type="text" data-answer="${aa.peptide}">`}</td>
+          <td>${Math.random()>0.5?aa.three:`<input type="text" data-answer="${aa.three}">`}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+      resetTimer();
+    }
+
+    function validateInput(input){
+      const val=input.value.trim(),ans=input.dataset.answer;
+      input.classList.remove('correct','incorrect');
+      if(val==="")return;
+      if(val.toLowerCase()===ans.toLowerCase()){
+        input.classList.add('correct');
+        notify("✅ Correct!","success");
+      }else{
+        input.classList.add('incorrect');
+        notify("❌ Try again!","error");
+      }
+      updateScore();
+    }
+
+    document.addEventListener('input',e=>{
+      if(e.target.matches('input[type="text"]'))validateInput(e.target);
+    });
+
+    function checkAnswers(){
+      document.querySelectorAll('input').forEach(input=>validateInput(input));
+    }
+
+    function updateScore(){
+      const inputs=document.querySelectorAll('input');
+      let correct=0,filled=0;
+      inputs.forEach(input=>{
+        if(input.value.trim()!==""){
+          filled++;
+          if(input.classList.contains('correct'))correct++;
+        }
+      });
+      const percent=inputs.length?Math.round((correct/inputs.length)*100):0;
+      document.getElementById('correct-score').textContent=correct;
+      document.getElementById('total-score').textContent=`${filled}/${inputs.length}`;
+      document.getElementById('percentage').textContent=`${percent}%`;
+      document.getElementById('progress-fill').style.width=`${percent}%`;
+    }
+
+    function resetGame(){initializeGame();updateScore();}
+
+    function notify(msg,type){
+      const box=document.getElementById('notification');
+      box.textContent=msg;
+      box.className=`notification show ${type}`;
+      setTimeout(()=>box.classList.remove('show'),1500);
+    }
+
+    function resetTimer(){
+      clearInterval(interval);timer=60;
+      document.getElementById('timer').textContent=timer;
+      interval=setInterval(()=>{
+        timer--;document.getElementById('timer').textContent=timer;
+        if(timer<=0){clearInterval(interval);checkAnswers();notify("⏰ Time’s up!","error");}
+      },1000);
+    }
+
+    function toggleDarkMode(){document.body.classList.toggle('dark');}
+
+    window.onload=()=>initializeGame();
+  </script>
+</body>
+</html>

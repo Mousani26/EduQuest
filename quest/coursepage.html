@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>EduQuest - STEM Learning</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+        --primary-color: #36e27b;
+        --secondary-color: #0d9488;--accent-color: #f97316;--background-color: #f8fbfa;
+        --text-color: #0e1b13;
+        --card-background: #ffffff;
+        --border-color: #e8f3ec;
+      }
+      .quest-card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+      .quest-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      }
+    </style>
+</head>
+
+<body class="bg-[var(--background-color)]" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-solid border-[var(--border-color)] px-4 sm:px-10 py-3">
+                <div class="max-w-7xl mx-auto flex items-center justify-between whitespace-nowrap">
+                    <div class="flex items-center gap-4 text-[var(--text-color)]">
+                        <div class="size-8 text-[var(--primary-color)]">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-[var(--text-color)] text-xl font-bold leading-tight tracking-[-0.015em]">
+                            EduQuest</h2>
+                    </div>
+                    <nav class="hidden md:flex items-center gap-8">
+                        <a class="text-[var(--text-color)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                            href="index.html">Home</a>
+                        <a class="text-[var(--primary-color)] text-sm font-bold leading-normal" href="#">Courses</a>
+                        <a class="text-[var(--text-color)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                            href="#">Community</a>
+                        <a class="text-[var(--text-color)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                            href="#">Profile</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                        <button
+                            class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 hover:bg-gray-200 text-[var(--text-color)] transition-colors">
+                            <span class="material-symbols-outlined"> notifications </span>
+                        </button>
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-gray-200"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJyiKU4iy0VkfJ_973tS91CPYE7xVw2Gz3RuJqzeFVR9CdX-Bi6dXK1doJz6vRAsPK3udZamipdT12p-ByeoAkH3BL_fkLIeN3iQvHG1zekTJ1OnNxdZCeJL5nQ4bXOMV3CGttFRmEiMyJHoJPhowB3j31BZ53LHbxqy4CWVYuaXqVxwJaNToKjTcSlc41Xsw2PtrZINYAnbsp0-qV66C1BiwKxi6oMjiJjiOgp5OIo8TzC4CmlseF2VRSbm31C-gof1pOhEpiOGUu");'>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    <div class="lg:col-span-2 space-y-8">
+                        <div class="rounded-2xl overflow-hidden shadow-lg">
+                            <div class="relative min-h-[300px] bg-cover bg-center flex flex-col justify-end"
+                                style='background-image: linear-gradient(to top, rgba(0,0,0,0.6) 20%, transparent), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWxqQ4oi_aWqPQMU_LX9Kfetk6vSn9fgpBPMKcTjrFfy2vC7cvQnS6aKag4oSW1h_wluTPDnfbG-ccPsKH4NNgsQkftoRnrQtsA-aTviYBNwBwbeU7ZW6MlEidwY-fh4Bb_yr2Uptg79Nd3cJ_pDMbFoqyF_nnOQ4GBHzovVr-6BsDAUj5b7T9Un9frr2m57zUgLuIoSfT8xqlsGjZZLmGeW0OEa5A39lQOLogbzp49IPRo4YqEIAt5-GEOP-tCH3q076kvwzsHWBx");'>
+                                <div class="p-6 text-white">
+                                    <h1 class="text-3xl md:text-4xl font-bold leading-tight">Welcome to our Virtual Reality classes !</h1>
+                                </div>
+                            </div>
+
+                            <h1 class="text-3xl md:text-4xl font-bold leading-tight text-green-600">Chemistry - Chemical Bonding</h1>
+
+
+                            <div class="bg-[var(--card-background)] p-6">
+                                <p class="text-gray-600 text-base font-normal leading-relaxed mb-6">
+                                    Explore the fundamental principles of chemistry through interactive lessons and
+                                    real-world applications. This course is designed to make chemistry engaging and
+                                    accessible for learners of all backgrounds.
+                                </p>
+                                <div class="flex flex-wrap gap-4">
+                                    <button
+                                        class="flex items-center gap-2 min-w-[84px] cursor-pointer justify-center overflow-hidden rounded-xl h-12 px-6 bg-[var(--primary-color)] text-[var(--text-color)] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg">
+                                        <span class="material-symbols-outlined"> play_arrow </span>
+                                        <span class="truncate">Start Course</span>
+                                    </button>
+                                    <button
+                                        class="flex items-center gap-2 min-w-[84px] cursor-pointer justify-center overflow-hidden rounded-xl h-12 px-6 bg-[var(--border-color)] text-[var(--text-color)] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+                                        <span class="material-symbols-outlined"> download </span>
+                                        <span class="truncate">Download Offline Pack</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg">
+                            <h2
+                                class="text-[var(--text-color)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                Modules</h2>
+                            <div class="space-y-3">
+                                <details
+                                    class="group quest-card bg-white p-4 rounded-xl border border-[var(--border-color)]"
+                                    open="">
+                                    <summary class="flex cursor-pointer items-center justify-between list-none">
+                                        <span class="text-[var(--text-color)] font-medium">Module 1: Introduction to Chemical Bonding</span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm font-semibold text-[var(--secondary-color)]">Completed
+                                                ✅</span>
+                                            <span
+                                                class="material-symbols-outlined text-[var(--text-color)] group-open:rotate-180 transition-transform">
+                                                expand_more </span>
+                                        </div>
+                                    </summary>
+                                    <div class="mt-4 text-gray-600">
+                                        <p>Get started with the basic concepts in a Gamified way and understand what this course is all
+                                            about. An exciting journey awaits!</p>
+                                            <br>
+                                    </div>
+
+                                    <button
+  class="flex items-center gap-2 min-w-[160px] cursor-pointer justify-center overflow-hidden rounded-xl h-12 px-6 
+  bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
+  text-white text-sm font-bold leading-normal tracking-[0.015em] 
+  transition-all shadow-lg hover:shadow-[0_0_20px_rgba(255,0,100,0.7)] 
+  hover:scale-105 hover:brightness-110">
+  <a href="https://playminigames.net/embed/bond-breaker-classroom-edition">
+  <span class="material-symbols-outlined"> play_arrow </span>
+  <span class="truncate">Learn by AR Game</span>
+  </a>
+</button>
+
+
+                                </details>
+                                <details
+                                    class="group quest-card bg-white p-4 rounded-xl border border-[var(--border-color)]">
+                                    <summary class="flex cursor-pointer items-center justify-between list-none">
+                                        <span class="text-[var(--text-color)] font-medium">Module 2: Physics
+                                            Fundamentals</span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm font-semibold text-yellow-600">In Progress ⏳</span>
+                                            <span
+                                                class="material-symbols-outlined text-[var(--text-color)] group-open:rotate-180 transition-transform">
+                                                expand_more </span>
+                                        </div>
+                                    </summary>
+                                    <div class="mt-4 text-gray-600">
+                                        <p>Dive deep into the core laws of physics. From Newton's laws to
+                                            thermodynamics, explore the building blocks of our universe.</p>
+                                    </div>
+                                </details>
+                                <details
+                                    class="group quest-card bg-white p-4 rounded-xl border border-[var(--border-color)] opacity-60 cursor-not-allowed">
+                                    <summary class="flex cursor-pointer items-center justify-between list-none">
+                                        <span class="text-gray-500 font-medium">Module 3: Engineering Challenges</span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm font-semibold text-gray-500">Locked 🔒</span>
+                                            <span class="material-symbols-outlined text-gray-500"> lock </span>
+                                        </div>
+                                    </summary>
+                                    <div class="mt-4 text-gray-500">
+                                        <p>Requires 500 XP to unlock. Apply your knowledge to solve real-world
+                                            engineering problems.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </section>
+                        <section>
+                            <h2
+                                class="text-[var(--text-color)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4 px-2">
+                                Interactive Zone</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div
+                                    class="quest-card bg-[var(--card-background)] rounded-2xl shadow-lg overflow-hidden">
+                                    <div class="p-6">
+                                        <p
+                                            class="text-[var(--secondary-color)] text-sm font-bold leading-normal uppercase">
+                                            Quick Quiz</p>
+                                        <p class="text-[var(--text-color)] text-lg font-bold leading-tight mt-1">Test
+                                            Your Knowledge</p>
+                                        <p class="text-gray-600 text-sm font-normal leading-normal mt-2">Take a short
+                                            quiz to reinforce your learning.</p>
+                                    </div>
+                                    <div class="h-32 bg-cover bg-center"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOJW6RsAXNOvR0ZOMjy2x_KdAo5HHE-7xPXKRw4BVR5O1TvxUkIDaICwotAyGJXM6XoaNO_jgeedyxGSb1ZNTIgfP7w1OV90pIVy0q6pj2j3sVYG6MovPQqaWgVvz5ahQWi2Qq9A2iF5C0S7rzJzqRKvnVxzxDTXJEt__3S4P2hZeMbswYyjZtOl7OXW4Dxu5rjlsMGS69NDI1OYg2FODB8x9hwlcFPNcY9rXGBk0EbI-YTMLoILnqB4k_2mSBbXmuITmgilijI4lK");'>
+                                    </div>
+                                </div>
+                                <div
+                                    class="quest-card bg-[var(--card-background)] rounded-2xl shadow-lg overflow-hidden">
+                                    <div class="p-6">
+                                        <p
+                                            class="text-[var(--accent-color)] text-sm font-bold leading-normal uppercase">
+                                            VR Lab</p>
+                                        <p class="text-[var(--text-color)] text-lg font-bold leading-tight mt-1">Enter
+                                            Virtual Lab</p>
+                                        <p class="text-gray-600 text-sm font-normal leading-normal mt-2">Preview our
+                                            immersive VR lab for hands-on experiments.</p>
+                                    </div>
+                                    <div class="h-32 bg-cover bg-center"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOugmM7VxlIxrt1vnoG5LtKV3VStg9vh3p7TXWMGkdGr7ov1MeBgVjz1IbL92ViHV8WoNt1wNDbQUErNMJmRROJow5vlxH_UCNYf-ysErDyqVy8iN1Ro-GWLx-0vwFKyV3zYNGTwRiYA5voeIS9AJbEG1xSJV4pTBhQ-4OC-OJa00FoEVX6rNAZ7L59y8ZXqXN544tLt7eLKkobyxYcDRs_xSjh-gLkHv0TtiHmWbfYGoJ8hWadcN-ncdpY4rR7DFooIZTXXhYlV35");'>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg">
+                            <h2
+                                class="text-[var(--text-color)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                Discussion &amp; Mentorship</h2>
+                            <div class="grid md:grid-cols-2 gap-6 items-start">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Ask a Question</h3>
+                                    <textarea
+                                        class="form-input w-full resize-none rounded-xl text-[var(--text-color)] focus:outline-0 focus:ring-2 focus:ring-[var(--primary-color)] border border-[var(--border-color)] bg-gray-50 focus:border-[var(--border-color)] h-32 placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
+                                        placeholder="Have a doubt? Ask your peers and mentors..."></textarea>
+                                    <button
+                                        class="mt-3 flex items-center gap-2 min-w-[84px] cursor-pointer justify-center overflow-hidden rounded-xl h-10 px-4 bg-[var(--primary-color)] text-[var(--text-color)] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all">Submit</button>
+                                </div>
+                                <div class="bg-teal-50 rounded-xl p-4 border border-teal-200">
+                                    <h3 class="font-bold text-lg text-teal-800 mb-2">Mentor Tip</h3>
+                                    <div class="flex items-start gap-4">
+                                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 mt-1"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARxfAEHp5E8jUvyP5A4R_SdHILD8lUwd61vmoUGT34xusXoBPBthjs4J9elvuP25Vey7JZQ6efWFs_PE-A-MF9l6ttilIRthw_H6X-iiNjBtAJYu1aDtzwymarHZ3WY6nzdprxIIwPwgFNTvtypKu_uJU9kNbeXZG4MRJ380lJE02Mw_AZmvVnyGoUnnZwMRSXMU89oBTQ07ON1OBxOKs6xK0KeNEepeQ0aYcP8KvZAH8bPom5uwUdEwAuhTzzT6V38wIsmvXayKga");'>
+                                        </div>
+                                        <div>
+                                            <p class="text-teal-700 text-sm">"Don't just memorize formulas, try to
+                                                understand the 'why' behind them. That's the key to mastering physics!"
+                                            </p>
+                                            <p class="text-teal-800 font-bold mt-2">Weekly Mentor Session: Sat 6 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="lg:col-span-1 space-y-8 sticky top-28">
+                        <div class="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg space-y-6">
+                            <h2 class="text-[var(--text-color)] text-2xl font-bold leading-tight tracking-[-0.015em]">
+                                Gamification</h2>
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <p class="text-[var(--text-color)] text-base font-medium">XP Progress</p>
+                                    <p class="text-[var(--secondary-color)] text-sm font-bold">2500 XP</p>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-[var(--primary-color)] h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1">250 XP to next level</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="bg-gray-100 rounded-xl p-4">
+                                    <p class="text-sm font-medium text-gray-600">Daily Streak</p>
+                                    <p class="text-[var(--text-color)] text-3xl font-bold">🔥 3</p>
+                                </div>
+                                <div class="bg-gray-100 rounded-xl p-4">
+                                    <p class="text-sm font-medium text-gray-600">Badges</p>
+                                    <p class="text-[var(--text-color)] text-3xl font-bold">🏆 5</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg">
+                            <h2
+                                class="text-[var(--text-color)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                Leaderboard</h2>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-4">
+                                    <span class="font-bold text-lg text-yellow-500">1.</span>
+                                    <div
+                                        class="flex-1 flex justify-between items-center bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2">
+                                        <span class="font-semibold text-yellow-800">Anya Sharma</span>
+                                        <span class="font-bold text-yellow-700">2500 XP</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <span class="font-bold text-lg text-gray-500">2.</span>
+                                    <div
+                                        class="flex-1 flex justify-between items-center bg-gray-100 rounded-lg px-3 py-2">
+                                        <span class="font-medium text-gray-700">Rohan Verma</span>
+                                        <span class="font-semibold text-gray-600">2300 XP</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <span class="font-bold text-lg text-gray-500">3.</span>
+                                    <div
+                                        class="flex-1 flex justify-between items-center bg-gray-100 rounded-lg px-3 py-2">
+                                        <span class="font-medium text-gray-700">Priya Patel</span>
+                                        <span class="font-semibold text-gray-600">2100 XP</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <span class="font-bold text-lg text-gray-500">4.</span>
+                                    <div
+                                        class="flex-1 flex justify-between items-center bg-gray-100 rounded-lg px-3 py-2">
+                                        <span class="font-medium text-gray-700">Arjun Singh</span>
+                                        <span class="font-semibold text-gray-600">1900 XP</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <span class="font-bold text-lg text-gray-500">5.</span>
+                                    <div
+                                        class="flex-1 flex justify-between items-center bg-gray-100 rounded-lg px-3 py-2">
+                                        <span class="font-medium text-gray-700">Divya Kapoor</span>
+                                        <span class="font-semibold text-gray-600">1700 XP</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            class="quest-card bg-orange-100 border border-orange-200 rounded-2xl shadow-lg overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-orange-800 text-lg font-bold leading-tight">Unlock Scholarship Entry!
+                                </h3>
+                                <p class="text-orange-700 text-sm font-normal leading-normal mt-2">Complete this course
+                                    to earn a special badge and qualify for scholarship opportunities.</p>
+                            </div>
+                            <div class="h-32 bg-cover bg-center"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2mGTg26SlP6pv03Dt8fpA5ZOSJhFsNBpib_NToLGVZWVx1I0LsfZ2_zALXdWNjv5-2rjHB-jOEFyVDK7wuOgXC3O_LWClkqpLfjJnZzrDr6LwrAV7jZHd5hg02Ctxjip7GB_8GSt_6ZLSChLXZXHfeTI0oVU7C8sJQArlo3uSs8rjlE3jr4EfRMhuLW8z3TKjJ0f97nhCf7ucVARoKw1Kj9Rs3SXnWrS4vhH9G82dwcPlMIzzO63j7yG3qnXDdbFdb2PXGZgdVJ3H");'>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <section class="mt-16">
+                    <h2 class="text-[var(--text-color)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                        Related Courses</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="quest-card bg-[var(--card-background)] rounded-2xl shadow-lg overflow-hidden">
+                            <div class="w-full h-40 bg-center bg-cover"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUitsOyFUpT6GjejSJQD7HShEIp6T93ZW9KD4mLnlDPyySJC6eNo_vHye-9NkUnZB2pZSmvZ8W-KKM96wVAEkgtC7FHK6g15br8MQCQk3-HVsaulfftkjf2qULDgQ29We0TQayPvCxlUCc9mxW7ZnaC9PwSgS8BIfxKavp91aCngnNgHqBzZaxuUBc-x9GJOeyk1A_Tr3mUtvCUCaASJAKl5awNebYBEef9yev-N5m8ErLimBbRMtc_r5T1e_VZXSrykYAC9-fS8By");'>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-[var(--text-color)] text-base font-medium leading-normal">Smart
+                                    Agriculture</p>
+                                <p class="text-gray-600 text-sm font-normal leading-normal">Learn about modern farming
+                                    techniques.</p>
+                            </div>
+                        </div>
+                        <div class="quest-card bg-[var(--card-background)] rounded-2xl shadow-lg overflow-hidden">
+                            <div class="w-full h-40 bg-center bg-cover"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwxw3RtDmQz3opJ88kpRnRRgT7VZFPS4Ctx5qucyUgjZFElVZKxTPdfC41-J_Wi5t2HRkn7CSKEbI_XShm88C28PMM7yI8C76zqSour3YaZ8fVD2DqTBNCapGsEyfQFCbhDKrybW3nqH54UxIH1GfKAGmHVLgyk4o826X3jgDzwdLnTCUgkXkU3lzg53eDcDrWQ4hTYo9NsYUVqDlv8fkHirldd6tnJkYd0fb0bEPkukuz6Y82RB0hWp3qNbMEtM4kIrkIA8lZvF5K");'>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-[var(--text-color)] text-base font-medium leading-normal">Future AI</p>
+                                <p class="text-gray-600 text-sm font-normal leading-normal">Explore the world of
+                                    artificial intelligence.</p>
+                            </div>
+                        </div>
+                        <div class="quest-card bg-[var(--card-background)] rounded-2xl shadow-lg overflow-hidden">
+                            <div class="w-full h-40 bg-center bg-cover"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaVoVObWpJIY0XZTmmGYaXuQVi2GteccLc8EuEEbOLXPKVnuxt1fHdXvwpl2PG4yVFlLsdy_AgZGMWpxxnB2P_gHdizmavb7MZIgCtFGGapITZ0R4FrJC0p6QS1DAxa8SNVL_ddOJWbekqpm8WUsDG66ybav_ZqFzDJECLfLAp66AJjgvBd_k8H1VtzD8GcoixmHX4vGTdEcxl0wSRuwS9uu3aL1PIfqXgojZn_fbeB-NbnhToeGh2k23ak7c5wQmarNmKX1bW9zZ5");'>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-[var(--text-color)] text-base font-medium leading-normal">Competitive
+                                    Exams</p>
+                                <p class="text-gray-600 text-sm font-normal leading-normal">Prepare for upcoming exams.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="bg-gray-100 border-t border-gray-200">
+                <div class="max-w-7xl mx-auto px-5 py-10">
+                    <div class="text-center">
+                        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-6">
+                            <a class="text-gray-600 hover:text-[var(--primary-color)] text-sm font-medium leading-normal"
+                                href="#">About Us</a>
+                            <a class="text-gray-600 hover:text-[var(--primary-color)] text-sm font-medium leading-normal"
+                                href="#">Contact</a>
+                            <a class="text-gray-600 hover:text-[var(--primary-color)] text-sm font-medium leading-normal"
+                                href="#">Privacy Policy</a>
+                            <a class="text-gray-600 hover:text-[var(--primary-color)] text-sm font-medium leading-normal"
+                                href="#">Terms of Service</a>
+                        </div>
+                        <div class="flex justify-center gap-4 mb-6">
+                            <a class="text-gray-500 hover:text-[var(--primary-color)] transition-colors" href="#">
+                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path clip-rule="evenodd"
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <a class="text-gray-500 hover:text-[var(--primary-color)] transition-colors" href="#">
+                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a class="text-gray-500 hover:text-[var(--primary-color)] transition-colors" href="#">
+                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path clip-rule="evenodd"
+                                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 2h.001zm-1.04 2.268c-2.43.0-2.752.011-3.72.058-.94.044-1.542.206-2.06.411a2.91 2.91 0 00-1.116.755 2.91 2.91 0 00-.755 1.116c-.205.518-.367 1.12-.411 2.06-.047.968-.058 1.29-.058 3.72s.011 2.752.058 3.72c.044.94.206 1.542.411 2.06a2.91 2.91 0 00.755 1.116 2.91 2.91 0 001.116.755c.518.205 1.12.367 2.06.411.968.047 1.29.058 3.72.058s2.752-.011 3.72-.058c.94-.044 1.542-.206 2.06-.411a2.91 2.91 0 001.116-.755 2.91 2.91 0 00.755-1.116c.205-.518.367-1.12.411-2.06.047-.968.058-1.29.058-3.72s-.011-2.752-.058-3.72c-.044-.94-.206-1.542-.411-2.06a2.91 2.91 0 00-.755-1.116 2.91 2.91 0 00-1.116-.755c-.518-.205-1.12-.367-2.06-.411-.968-.047-1.29-.058-3.72-.058h.001zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.27a3.135 3.135 0 110-6.27 3.135 3.135 0 010 6.27zM16.338 7.21a1.21 1.21 0 10.001 2.421 1.21 1.21 0 000-2.421z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 text-sm font-normal leading-normal">© 2024 EduQuest. All rights
+                            reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

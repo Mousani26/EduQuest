@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduQuest - Mnemonics for Ionic Equilibrium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    :root {
+      --background-start-rgb: 10, 25, 47;
+      --background-end-rgb: 21, 94, 117;
+    }
+    .gradient-background {
+      background-image: linear-gradient(to bottom right, rgba(var(--background-start-rgb), 0.9), rgba(var(--background-end-rgb), 0.9)), url('https://images.unsplash.com/photo-1564325724739-bae0bd08762c?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+    }
+    .flashcard {
+      perspective: 1000px;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flashcard.flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+      background-blend-mode: overlay;
+      background-image: linear-gradient(35deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    }
+    .flashcard-front {
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .flashcard-back {
+      background-color: #1a2938;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+    .floating-ion {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 10s infinite ease-in-out;
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(15deg); }
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+    [data-memory-hack-content] {
+        display: none;
+    }
+    .memory-hack-active [data-memory-hack-content] {
+        display: block;
+    }
+    .memory-hack-active [data-mnemonic-content] {
+        display: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="gradient-background text-white" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+<div class="relative min-h-screen">
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="relative">
+<div class="floating-ion" style="top: 10%; left: 15%; animation-duration: 12s;">H⁺</div>
+<div class="floating-ion" style="top: 20%; right: 10%; animation-duration: 8s;">OH⁻</div>
+<div class="floating-ion" style="top: 50%; left: 5%; animation-duration: 15s;">Na⁺</div>
+<div class="floating-ion" style="top: 70%; right: 20%; animation-duration: 10s;">Cl⁻</div>
+<div class="floating-ion" style="top: 85%; left: 30%; animation-duration: 13s;">Ca²⁺</div>
+<div class="p-4 pt-8">
+<div class="flex items-center justify-between mb-6">
+<div class="text-white flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-tight flex-1 text-center">Chemistry Hub</h2>
+<div class="size-10"></div>
+</div>
+<h1 class="text-3xl font-bold leading-tight tracking-tighter text-center mb-4">🧠 Mnemonics for Ionic Equilibrium</h1>
+<p class="text-center text-cyan-200 mb-8">Immersive learning with dedicated, realistic visuals.</p>
+<div class="space-y-4">
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="Realistic image of labeled acid bottles in a lab setting" class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfiunkAV53lp_vd_Rfa32JQIkSlHk0ngAWQ-vp_iOoBzGTzm8AcjBKtqlPsZwFRmpncsoyRw8UDfLJdSs3hMrgeafQYT1LThaT7AT5EmyuflvD0SttlDrUEM5OlY-x3rnUrBSpHLbDAAQnu3s-UcCjw6lOtmRLiKRFxZIp05dbiFfaY-hYBn7iTSoIC_9mByR27RI9kpfDhRrcdxXGNN6VGV1S3NPUU7fgfzfgfsTrrcixmgTjF9JzcWyuZXIFEzO0NUxqtHDnfyzG"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Strong Acids</p>
+<p class="text-gray-300">Hi Hi Strong Super Clean Night</p>
+<p class="text-sm font-mono mt-1 text-gray-400">HI, HBr, HCl, H₂SO₄, HClO₄, HNO₃</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Link ‘Hi’ with Halogen acids (HCl, HBr, HI). ‘Strong Super Clean Night’ = Nitric, Sulfuric, Perchloric → easy night revision.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A block of sodium metal and a bottle of potassium hydroxide" class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDilsKl9WceiasFwvMyQmWs9-qPeVe9M6-AbWlIfLuHAqtnTDu0BvGvutj1Pb4vcB6c1lnfgr1HsKdkmV4JcXrCNfXomsGJv7Oe2d91VzfjqaY_XvQjEIzmA_2g4oxUcz91guCL-fbzhnLlhSoyaVFQpyfyYO86V9ahhLWAwMP0JAPPYFvVydGQP3oAPMEU3_69nqbcRYn2H9-zXLM6YicrRY79qb-kBxsJ4GnnjrOpkBRDdlxkprJbz2bsai_tLL6Fw896eF2wvf2G"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Strong Bases</p>
+<p class="text-gray-300">Never Keep Strong Bases Close</p>
+<p class="text-sm font-mono mt-1 text-gray-400">NaOH, KOH, Sr(OH)₂, Ba(OH)₂, Ca(OH)₂</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Think of ‘Never Keep’ as sodium &amp; potassium (Na, K). ‘Strong Bases Close’ = calcium, barium, strontium → grouped together in periodic table.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="An apple, a fizzy drink, a carton of milk, and ants on a leaf, representing various weak acids." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArUwSA7V7l3LhK9VN2H4zwpl3-2KmOD7ThHxIqDjVKdF8VQKOCpFOdxbTxKf_nORQNOHQCny36aw9W3B89110z7zIs_Atn3s3FCH4E4HUV3-HFcg49rDrzdtI3HmVl0fRWm56fApjkrQsAusYT46fUEeSMO7MmcOI2uwK2nC3NMctpQI7SUw_mkhTNkoS0G337MEns5XYYUFZVcFrp_ozgDbvqWGV194vC7tssPRrAazvfWnS-nCPek--aLp_XMYNNCIUzZ02MHj7p"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Weak Acids</p>
+<p class="text-gray-300">Apple Candy Lingers Forever</p>
+<p class="text-sm font-mono mt-1 text-gray-400">Acetic, Carbonic, Lactic, Formic</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Visualize eating sour apple candy → sourness = weak acids.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A bottle of ammonia cleaner and a diagram of an amine molecule." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj-HQ_Vgjt4smlZFIv6h5fVxMFFSNqa2j8dNjsQxJZ35kSy28ZkA-aR2duGIzoOuZwGFd1Rsq5KA_1txg_ezRzWO2RrDjKvNKw529UECwcTpDCorf70HbyiF6oEycOq6kv3rCEe6NvMIbcRgInmTOgzoLD4sBINMBMhPPlSXJIy7Ke0kz04B2iDno4SwY59ZTb8uGT5w68GvLN2Qep2ZvVl1WKTUK5gDCj2ia_mjzo1xBB7NaaoQ5JKozV-ggeIF_z_XDDlucraeeK"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Weak Bases</p>
+<p class="text-gray-300">Never Amuse Weak Chemistry</p>
+<p class="text-sm font-mono mt-1 text-gray-400">NH₃ (Ammonia), Amines</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Ammonia = Never Amuse. Carbonates bubble weakly in acids → Weak Chemistry.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A beautiful crystal formation, such as silver chloride or barium sulfate." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZImNAIUsV5vpb1DVibOiOKCp-M-uqpBn81AV0IHJlvYWZAQyZzecIfDFhdsTmdk5oU9SnLNt5Y_CFbrZWA8SmBzSiVdJ_gBZwR8Z09QQ2vd0-bpetB2mrwyrcfZGVko3xmrxd4fibT3ddUwyzSX8c75rrzMdI21q-dvAqszZOQnQmmKWW6Ne91MihYxbK1Gaq2UFF0ecojYsjEZEtoyywC83ckIAHp6rbIlEYUqOMBrebRt7gWrjZkuRtZSpPLYyCGfNQFGJ5pMbV"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Solubility Product</p>
+<p class="text-gray-300">All Pretty Beautiful Crystals</p>
+<p class="text-sm font-mono mt-1 text-gray-400">Example: AgCl &lt; PbCl₂ &lt; BaSO₄</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Imagine a jewelry box: All Pretty Beautiful Crystals = Silver, Lead, Barium, Calcium.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A bowl of applesauce next to a banana shake, representing acidic and basic buffers." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOKKTDtcxwgmjzI6eUO_UGABAshkQBiQfiuXIAkGN5mUOID3uRiwXmMOQMU_Dy4P7D9n6gZ2wRWDDifBfp95iGw2SQ3YI-mqaULSD1EABrTcjIAz43qh5P1fqCEg9u_czvZ57nR3-r_hc7dvsra39gGpWxo3zlAvELaC0j4AgKDoTO2m8RMdJvFxBgGFuAPan94P_5g-ZGv8IyLbOtKKlW0laMfkbA73SshnKjRR5kQzU1G4KZWQeoIrHYdNr_BVbWzeD7a3ubwjxP"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Buffer System</p>
+<p class="text-gray-300">Apple sauce / Banana shake</p>
+<p class="text-sm font-mono mt-1 text-gray-400">Acidic / Basic buffers</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Apple sauce = acidic, Banana shake = basic → easy food analogy.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A vintage logbook and a scientific calculator, representing the Henderson-Hasselbalch equation." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpIMNfULY9M0yTbLW0BnIHIxMx24Lfa111Vo0T0ik2GW-LzcICz-nz5lUFcIWs7pXUmCkVAD6vQkePdEnQUppowswHF6rxDUey0yXLmSOdo97n-55Pfjznhx4z67gr-3-nnoIRC56koVUC3BKqvRkhsILrPbcKuLL_TV8Tbk5SGsTsk6QZ5mQaMXrx5jc1GWb2FDKV5wSqG58Mzi9TUqmu0Z6DWmG2SQuRhV9aEuLqfko-sx-JVGbBZT3Ef1yCa8BUbtxI-y0175M"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Henderson–Hasselbalch</p>
+<p class="text-gray-300">Please Keep All Logs Handy</p>
+<p class="text-sm font-mono mt-1 text-gray-400">pH = pKa + log([A⁻]/[HA])</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">LOG equation → keep logbook handy.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A beaker with a precipitate forming after adding a common ion." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5oRPgbptHPw5yUYpaWERgjGU_O3L4iLWU1_NLSFivwR0HPTVWF81o2wDi_Nbe5C493qZLCGXbG3dOls27zFOQpu9XOfHIlEBTnSFHDsn1ho0QNlTjpRVTjPjr5GVXtBjhmsIXFzYlguIyvwBoxh1-OIVPcXL8sP3sGIHztYyPLyvv5atexvJXm-NsSskGizqW0qFMS3zMqUnjjnhxBAb8NsIl5myB4M4aLnZlj6tsjd3YaOrKXaZRxSpiOrT__EO0mpFU_DhF8ehY"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Common Ion Effect</p>
+<p class="text-gray-300">Adding Common Ions Suppresses</p>
+<p class="text-sm mt-1 text-gray-400">Reduces dissociation.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Adding common people to a room suppresses conversations → less dissociation.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A diagram showing molecules dissociating into ions." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2SEkWR9hpba9nx0BUts345JAHzfVq4LRbQtdiRxJO-ynE1wAkgkB6D3OAQYZgMDvj7OD9zLqh3wHkn3DKce_oxSIKHgU4urISS2UE8LkstI-zFjCMykO3k2489_8z0LeGv_LXeI7cQzWkS_aey19cGEj6YVLoDQ0-ToC0fMETO7WXjCrdpKH7w-yPOUPQMrPwS2FH6woWEF6ks7azLw9nZ5_mgEba5WnkKBTEeuzGGuWFaT3aHn50Zj60WhL2HUWSjB01pkoxKan3"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Degree of Dissociation (α)</p>
+<p class="text-gray-300">Alpha Always Defines Ionization</p>
+<p class="text-sm font-mono mt-1 text-gray-400">α = (dissociated) / (initial)</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Greek Alpha = beginning → defines how much ionization begins.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg backdrop-blur-lg border border-white/10" data-mnemonic-card="">
+<div class="flex items-center gap-4" data-mnemonic-content="">
+<img alt="A series of beakers showing increasing dilution of a weak acid solution." class="w-20 h-20 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLmMbdP57CLDzTmzhTWAqHSqLMKAGqM4HHgNR-FKQZlfevQZv1XRrf70TugL0U7VPPygLbEphObNLh40MvzmCU6yW-IntbOXe3pIaFnIDs0lJXoCMvjuxj9C4UObmQUXozt8k_YNCt7SFrX3Wfg8NUGpjISZ2CsaLZOI_QBTx4fuRQ8O2HdPdQtK9C1hai94-_vWotjVdCYNqqHzW7JadVCx541jlR4DvgcGKx021m_FT2U16-khRKl5BmuGhzdPgfvwtsDZx_xr2y"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Ostwald’s Dilution Law</p>
+<p class="text-gray-300">Only Dilution Loves Weak Acids</p>
+<p class="text-sm mt-1 text-gray-400">Dissociation increases with dilution.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">lightbulb</span> Hack
+              </button>
+</div>
+</div>
+</div>
+<div data-memory-hack-content="">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-lg font-bold text-cyan-300">Memory Hack</p>
+<p class="text-gray-300 text-sm">Weak acids become stronger with more dilution → easier dissociation.</p>
+</div>
+<button class="memory-hack-trigger flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back
+              </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 mb-8 border-t-2 border-cyan-500/20 pt-8">
+<h2 class="text-2xl font-bold text-center mb-6">Enhanced Learning Tools</h2>
+<div class="grid grid-cols-2 gap-4 text-center">
+<div class="bg-black/40 p-4 rounded-xl shadow-lg flex flex-col items-center justify-center backdrop-blur-lg border border-white/10">
+<span class="material-symbols-outlined text-4xl text-cyan-300">auto_awesome</span>
+<h3 class="font-semibold mt-2">Image + Text Pairing</h3>
+<p class="text-xs text-gray-300">Each mnemonic features a unique, dedicated image to reinforce memory through visual association.</p>
+</div>
+<div class="bg-black/40 p-4 rounded-xl shadow-lg flex flex-col items-center justify-center backdrop-blur-lg border border-white/10">
+<span class="material-symbols-outlined text-4xl text-cyan-300">shuffle</span>
+<h3 class="font-semibold mt-2">Quick Recall Mode</h3>
+<p class="text-xs text-gray-300">Shuffle and match concepts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sticky bottom-0 mt-8">
+<div class="flex justify-around border-t border-white/10 bg-black/50 backdrop-blur-lg py-2">
+<a class="flex flex-col items-center justify-end gap-1 text-gray-400 w-1/5" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path>
+</svg>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-white w-1/5" href="#">
+<div class="relative">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.69,199.77,160,96.92V40h8a8,8,0,0,0,0-16H88a8,8,0,0,0,0,16h8V96.92L34.31,199.77A16,16,0,0,0,48,224H208a16,16,0,0,0,13.72-24.23Zm-90.08-42.91c-15.91-8.05-31.05-12.32-45.22-12.81l24.47-40.8A7.93,7.93,0,0,0,112,99.14V40h32V99.14a7.93,7.93,0,0,0,1.14,4.11L183.36,167C171.4,169.34,154.29,168.34,131.61,156.86Z"></path>
+</svg>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-cyan-400 rounded-full"></div>
+</div>
+<p class="text-xs font-medium">Subjects</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-400 w-1/5" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+<p class="text-xs font-medium">Lab</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-400 w-1/5" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path>
+</svg>
+<p class="text-xs font-medium">Exams</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-400 w-1/5" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+</svg>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+    document.querySelectorAll('.memory-hack-trigger').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('[data-mnemonic-card]');
+        card.classList.toggle('memory-hack-active');
+      });
+    });
+  </script>
+
+</body></html>

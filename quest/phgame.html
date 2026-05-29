@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pH Visualizer Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Techy animated gradient background */
+    body {
+      background: linear-gradient(270deg, #0f172a, #1e293b, #0f172a);
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+      color: white;
+    }
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Drop zones */
+    .drop-zone {
+      min-height: 120px;
+      border: 2px dashed #38bdf8;
+      border-radius: 12px;
+      padding: 14px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.05);
+    }
+    .drop-zone.correct {
+      background-color: #22c55e !important; /* green */
+      color: white;
+      box-shadow: 0 0 20px #22c55e;
+    }
+    .drop-zone.incorrect {
+      background-color: #ef4444 !important; /* red */
+      color: white;
+      box-shadow: 0 0 20px #ef4444;
+    }
+
+    /* Glow effect on drag */
+    .drop-zone.drag-over {
+      background: rgba(56, 189, 248, 0.2);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #38bdf8;
+    }
+
+    /* Draggable substance cards */
+    .draggable {
+      cursor: grab;
+      transition: all 0.3s ease;
+    }
+    .draggable:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #38bdf8;
+    }
+    .draggable:active {
+      cursor: grabbing;
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    /* Score styling */
+    #scoreBox {
+      background: rgba(56, 189, 248, 0.15);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+
+    /* Button glow */
+    #restart {
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #3b82f6;
+    }
+    #restart:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #60a5fa;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center p-6 min-h-screen">
+
+  <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">🧪 pH Visualizer Game</h1>
+  <p class="text-gray-300 mb-6 text-lg">Drag the substances to the correct pH category!</p>
+
+  <!-- Score -->
+  <div id="scoreBox" class="mb-6 text-lg font-bold">
+    Score: <span id="score">0</span>
+  </div>
+
+  <!-- Substances -->
+  <div id="substances" class="flex gap-4 flex-wrap justify-center mb-6">
+    <div class="draggable bg-gray-800 px-4 py-2 rounded-lg shadow-md" draggable="true" data-ph="acidic">🍋 Lemon Juice (pH 2)</div>
+    <div class="draggable bg-gray-800 px-4 py-2 rounded-lg shadow-md" draggable="true" data-ph="acidic">🥫 Vinegar (pH 3)</div>
+    <div class="draggable bg-gray-800 px-4 py-2 rounded-lg shadow-md" draggable="true" data-ph="neutral">💧 Water (pH 7)</div>
+    <div class="draggable bg-gray-800 px-4 py-2 rounded-lg shadow-md" draggable="true" data-ph="basic">🧼 Soap (pH 10)</div>
+    <div class="draggable bg-gray-800 px-4 py-2 rounded-lg shadow-md" draggable="true" data-ph="basic">🧴 Bleach (pH 13)</div>
+  </div>
+
+  <!-- Drop Zones -->
+  <div class="grid grid-cols-3 gap-6 w-full max-w-4xl">
+    <div id="acidic" class="drop-zone flex flex-col items-center justify-center">
+      <p class="font-bold text-lg">Acidic (pH 0 - 6)</p>
+    </div>
+    <div id="neutral" class="drop-zone flex flex-col items-center justify-center">
+      <p class="font-bold text-lg">Neutral (pH 7)</p>
+    </div>
+    <div id="basic" class="drop-zone flex flex-col items-center justify-center">
+      <p class="font-bold text-lg">Basic (pH 8 - 14)</p>
+    </div>
+  </div>
+
+  <!-- Restart Button -->
+  <button id="restart" class="mt-8 bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-bold">
+    🔄 Restart
+  </button>
+
+  <script>
+    let score = 0;
+
+    const draggables = document.querySelectorAll(".draggable");
+    const dropZones = document.querySelectorAll(".drop-zone");
+    const scoreDisplay = document.getElementById("score");
+    const restartBtn = document.getElementById("restart");
+
+    draggables.forEach(item => {
+      item.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text/plain", item.dataset.ph);
+        e.dataTransfer.setData("id", item.innerText);
+      });
+    });
+
+    dropZones.forEach(zone => {
+      zone.addEventListener("dragover", e => {
+        e.preventDefault();
+        zone.classList.add("drag-over");
+      });
+      zone.addEventListener("dragleave", () => {
+        zone.classList.remove("drag-over");
+      });
+      zone.addEventListener("drop", e => {
+        e.preventDefault();
+        zone.classList.remove("drag-over");
+
+        const ph = e.dataTransfer.getData("text/plain");
+        const id = e.dataTransfer.getData("id");
+        const dragged = [...draggables].find(d => d.innerText === id);
+
+        if (zone.id === ph) {
+          score++;
+          scoreDisplay.textContent = score;
+          zone.classList.add("correct");
+          setTimeout(() => zone.classList.remove("correct"), 600);
+          dragged.remove(); // remove from substances
+        } else {
+          zone.classList.add("incorrect");
+          setTimeout(() => zone.classList.remove("incorrect"), 600);
+        }
+      });
+    });
+
+    restartBtn.addEventListener("click", () => {
+      location.reload();
+    });
+  </script>
+</body>
+</html>

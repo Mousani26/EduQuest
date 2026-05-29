@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EduQuest - Class Selection</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .glassmorphism {
+      background: rgba(17, 26, 34, 0.6);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(50, 79, 103, 0.2);
+    }
+    .card-gradient-1 { background-image: linear-gradient(to top right, #192833, #23435A); }
+    .card-gradient-2 { background-image: linear-gradient(to top right, #192833, #1E4D4D); }
+    .card-gradient-3 { background-image: linear-gradient(to top right, #192833, #4C3E63); }
+    .card-gradient-4 { background-image: linear-gradient(to top right, #192833, #5A4A23); }
+    .card-gradient-5 { background-image: linear-gradient(to top right, #192833, #2C5234); }
+    .card-gradient-6 { background-image: linear-gradient(to top right, #192833, #5A2323); }
+    .card-gradient-7 { background-image: linear-gradient(to top right, #192833, #233748); }
+    .glow-on-hover:hover {
+      box-shadow: 0 0 20px 5px rgba(45, 212, 191, 0.4);
+      transform: translateY(-8px) scale(1.03);
+    }
+  }
+  body {
+      font-family: 'Inter', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+  }
+</style>
+<style>
+  body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+<body class="bg-[#111a22]">
+
+<div class="fixed inset-0 flex items-center justify-center p-4 sm:p-6 md:p-8">
+<div class="w-full max-w-7xl mx-auto glassmorphism rounded-3xl shadow-2xl flex flex-col">
+  
+  <!-- Header -->
+  <div class="flex justify-center items-center p-6 border-b border-white/10">
+    <h1 class="text-3xl md:text-4xl font-bold text-white tracking-wider">Select Your Class</h1>
+  </div>
+
+  <!-- Class Grid -->
+  <div class="flex-grow p-6 sm:p-8 md:p-12 overflow-y-auto">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+
+      <!-- Loop for Class 6 to 12 -->
+      <!-- Class 6 -->
+      <div class="relative group">
+        <button onclick="toggleOptions(this)" class="w-full aspect-[4/5] flex flex-col items-center justify-center p-4 rounded-2xl card-gradient-1 glow-on-hover transition-all duration-300">
+          <span class="material-symbols-outlined text-teal-300 text-4xl md:text-5xl mb-3">school</span>
+          <h2 class="text-white text-xl md:text-2xl font-semibold">Class 6</h2>
+        </button>
+        <div class="absolute inset-0 bg-[#111a22]/90 rounded-2xl hidden flex-col items-center justify-center space-y-4 p-4 text-center" >
+          <button class="bg-teal-500 text-white w-full py-2 rounded-lg">Organic</button>
+          <button class="bg-green-500 text-white w-full py-2 rounded-lg">Inorganic</button>
+          <button class="bg-purple-500 text-white w-full py-2 rounded-lg">Physical</button>
+          <button onclick="toggleOptions(this.parentElement.previousElementSibling)" class="mt-2 text-sm text-gray-300 underline">Back</button>
+        </div>
+      </div>
+
+      <!-- Class 7 -->
+      <div class="relative group">
+        <button onclick="toggleOptions(this)" class="w-full aspect-[4/5] flex flex-col items-center justify-center p-4 rounded-2xl card-gradient-2 glow-on-hover transition-all duration-300">
+          <span class="material-symbols-outlined text-green-300 text-4xl md:text-5xl mb-3">auto_stories</span>
+          <h2 class="text-white text-xl md:text-2xl font-semibold">Class 7</h2>
+        </button>
+        <div class="absolute inset-0 bg-[#111a22]/90 rounded-2xl hidden flex-col items-center justify-center space-y-4 p-4 text-center" >
+          <button class="bg-teal-500 text-white w-full py-2 rounded-lg">Organic</button>
+          <button class="bg-green-500 text-white w-full py-2 rounded-lg">Inorganic</button>
+          <button class="bg-purple-500 text-white w-full py-2 rounded-lg">Physical</button>
+          <button onclick="toggleOptions(this.parentElement.previousElementSibling)" class="mt-2 text-sm text-gray-300 underline">Back</button>
+        </div>
+      </div>
+
+      <!-- Class 8 -->
+      <div class="relative group">
+        <button onclick="toggleOptions(this)" class="w-full aspect-[4/5] flex flex-col items-center justify-center p-4 rounded-2xl card-gradient-3 glow-on-hover transition-all duration-300">
+          <span class="material-symbols-outlined text-purple-300 text-4xl md:text-5xl mb-3">star</span>
+          <h2 class="text-white text-xl md:text-2xl font-semibold">Class 8</h2>
+        </button>
+        <div class="absolute inset-0 bg-[#111a22]/90 rounded-2xl hidden flex-col items-center justify-center space-y-4 p-4 text-center" >
+          <button class="bg-teal-500 text-white w-full py-2 rounded-lg">Organic</button>
+          <button class="bg-green-500 text-white w-full py-2 rounded-lg">Inorganic</button>
+          <button class="bg-purple-500 text-white w-full py-2 rounded-lg">Physical</button>
+          <button onclick="toggleOptions(this.parentElement.previousElementSibling)" class="mt-2 text-sm text-gray-300 underline">Back</button>
+        </div>
+      </div>
+
+      <!-- Class 9 -->
+      <div class="relative group">
+        <button onclick="toggleOptions(this)" class="w-full aspect-[4/5] flex flex-col items-center justify-center p-4 rounded-2xl card-gradient-4 glow-on-hover transition-all duration-300">
+          <span class="material-symbols-outlined text-orange-300 text-4xl md:text-5xl mb-3">school</span>
+          <h2 class="text-white text-xl md:text-2xl font-semibold">Class 9</h2>
+        </button>
+        <div class="absolute inset-0 bg-[#111a22]/90 rounded-2xl hidden flex-col items-center justify-center space-y-4 p-4 text-center" >
+          <button class="bg-teal-500 text-white w-full py-2 rounded-lg">Organic</button>
+          <button class="bg-green-500 text-white w-full py-2 rounded-lg">Inorganic</button>
+          <button class="bg-purple-500 text-white w-full py-2 rounded-lg">Physical</button>
+          <button onclick="toggleOptions(this.parentElement.previousElementSibling)" class="mt-2 text-sm text-gray-300 underline">Back</button>
+        </div>
+      </div>
+
+      <!-- Class 10 -->
+      <div class="relative group">
+        <button onclick="toggleOptions(this)" class="w-full aspect-[4/5] flex flex-col items-center justify-center p-4 rounded-2xl card-gradient-5 glow-on-hover transition-all duration-300">
+          <span class="material-symbols-outlined text-teal-300 text-4xl md:text-5xl mb-3">auto_stories</span>
+          <h2 class="text-white text-xl md:text-2xl font-semibold">Class 10</h2>
+        </button>
+        <div class="absolute inset-0 bg-[#111a22]/90 rounded-2xl hidden flex-col items-center justify-center space-y-4 p-4 text-center" >
+          <button class="bg-teal-500 text-white w-full py-2 rounded-lg">Organic</button>
+          <button class="bg-green-500 text-white w-full py-2 rounded-lg">Inorganic</button>
+          <button class="bg-purple-500 text-white w-full py-2 rounded-lg">Physical</button>
+          <button onclick="toggleOptions(this.parentElement.previousElementSibling)" class="mt-2 text-sm text-gray-300 underline">Back</button>
+        </div>
+      </div>
+
+      <!-- Class 11 -->
+      <div class="relative group">
+        <button onclick="toggleOptions(this)" class="w-full aspect-[4/5] flex flex-col items-center justify-center p-4 rounded-2xl card-gradient-6 glow-on-hover transition-all duration-300">
+          <span class="material-symbols-outlined text-red-300 text-4xl md:text-5xl mb-3">star</span>
+          <h2 class="text-white text-xl md:text-2xl font-semibold">Class 11</h2>
+        </button>
+        <div class="absolute inset-0 bg-[#111a22]/90 rounded-2xl hidden flex-col items-center justify-center space-y-4 p-4 text-center" >
+          <a href="oc11.html"><button class="bg-teal-500 text-white w-full py-2 rounded-lg">Organic</button></a>
+          <a href="ioc11.html"><button class="bg-green-500 text-white w-full py-2 rounded-lg">Inorganic</button></a>
+          <a href="pc11.html"><button class="bg-purple-500 text-white w-full py-2 rounded-lg">Physical</button></a>
+          <button onclick="toggleOptions(this.parentElement.previousElementSibling)" class="mt-2 text-sm text-gray-300 underline">Back</button>
+        </div>
+      </div>
+
+      <!-- Class 12 -->
+      <div class="relative group">
+        <button onclick="toggleOptions(this)" class="w-full aspect-[4/5] flex flex-col items-center justify-center p-4 rounded-2xl card-gradient-7 glow-on-hover transition-all duration-300">
+          <span class="material-symbols-outlined text-blue-300 text-4xl md:text-5xl mb-3">school</span>
+          <h2 class="text-white text-xl md:text-2xl font-semibold">Class 12</h2>
+        </button>
+        <div class="absolute inset-0 bg-[#111a22]/90 rounded-2xl hidden flex-col items-center justify-center space-y-4 p-4 text-center" >
+          <a href="oc12.html"><button class="bg-teal-500 text-white w-full py-2 rounded-lg">Organic</button></a>
+          <a href="ioc12.html"><button class="bg-green-500 text-white w-full py-2 rounded-lg">Inorganic</button></a>
+          <a href="pc12.html"><button class="bg-purple-500 text-white w-full py-2 rounded-lg">Physical</button></a>
+          <button onclick="toggleOptions(this.parentElement.previousElementSibling)" class="mt-2 text-sm text-gray-300 underline">Back</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function toggleOptions(button) {
+  const overlay = button.nextElementSibling;
+  overlay.classList.toggle('hidden');
+}
+</script>
+
+</body>
+</html>

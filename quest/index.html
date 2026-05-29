@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>EduQuest - Gamified Learning</title>
+
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <style type="text/tailwindcss">
+
+        :root {
+
+           --primary-color: rgb(59, 193, 200);
+
+           --secondary-color: #f0f4f2;
+
+           --text-primary: #111813;
+
+           --text-secondary: #61896f;
+
+           --soft-blue: #E0F2F1;
+
+           --soft-orange: #FFF3E0;
+
+       }
+
+   </style>
+
+</head>
+
+
+
+
+<body style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+
+    <div class="relative flex size-full min-h-screen flex-col overflow-x-hidden group/design-root">
+
+        <div class="layout-container flex h-full grow flex-col">
+
+            <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg">
+
+                <div class="container mx-auto px-6 lg:px-10">
+
+                    <div
+                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f4f2] py-4">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="size-8 text-[var(--primary-color)]">
+
+                                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor">
+                                    </path>
+                                </svg>
+
+                            </div>
+
+                            <h2 class="text-[var(--text-primary)] text-2xl font-bold tracking-tighter">EduQuest</h2>
+
+                        </div>
+
+
+
+
+
+                        <nav class="hidden md:flex items-center gap-8">
+                            <a href="#home"
+                                class="text-[rgb(20,150,160)] font-bold hover:text-black transition-colors">Home</a>
+                            <a href="#about"
+                                class="text-[rgb(20,150,160)] font-bold hover:text-black transition-colors">About</a>
+                            <a href="#courses"
+                                class="text-[rgb(20,150,160)] font-bold hover:text-black transition-colors">Courses</a>
+                            <a href="#rewards"
+                                class="text-[rgb(20,150,160)] font-bold hover:text-black transition-colors">Rewards</a>
+                            <a href="#progress"
+                                class="text-[rgb(20,150,160)] font-bold hover:text-black transition-colors">Progress</a>
+                            <a href="#feedback"
+                                class="text-[rgb(20,150,160)] font-bold hover:text-black transition-colors">Feedback</a>
+                            <a href="#aboutus"
+                                class="text-[rgb(20,150,160)] font-bold hover:text-black transition-colors">About Us</a>
+                        </nav>
+
+
+
+                        <div class="flex items-center gap-3">
+
+
+
+                            <button class="hidden sm:flex min-w-[130px] h-12 px-6 cursor-pointer items-center justify-center 
+         rounded-full text-white text-base font-bold tracking-wide relative 
+         bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 
+         shadow-md transition-all duration-300 hover:scale-110 hover:shadow-xl hover:from-yellow-500 hover:to-red-600">
+
+                                <!-- Softer Glow layer -->
+                                <span
+                                    class="absolute inset-0 rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 blur-md opacity-10 animate-pulse"></span>
+
+                                <a href="offline.html" class="relative z-10">
+                                    <span class="truncate">Offline</span>
+                                </a>
+                            </button>
+
+
+
+
+                            <div class="flex items-center gap-3">
+
+
+
+                                <button
+                                    class="flex min-w-[90px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-5 bg-[var(--primary-color)] text-[var(--text-primary)] text-base font-bold leading-normal tracking-wide transition-all duration-300 shadow-[0_0_10px_#38e07b] hover:shadow-[0_0_20px_#38e07b] hover:opacity-90">
+                                    <a href="login.html" class="w-full h-full flex items-center justify-center">
+                                        <span class="truncate">Login</span>
+                                    </a>
+                                </button>
+
+                                <button
+                                    class="flex min-w-[90px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-5 bg-[var(--primary-color)] text-[var(--text-primary)] text-base font-bold leading-normal tracking-wide transition-all duration-300 shadow-[0_0_10px_#38e07b] hover:shadow-[0_0_20px_#38e07b] hover:opacity-90">
+                                    <a href="login2.html" class="w-full h-full flex items-center justify-center">
+                                        <span class="truncate">Sign Up</span>
+                                    </a>
+                                </button>
+
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+            </header>
+
+            <main class="flex-1">
+
+
+
+
+
+                <section id="home" class="py-20 md:py-32">
+
+                    <div class="container mx-auto px-6 lg:px-10">
+
+                        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+
+                            <div class="flex flex-col gap-8 text-center lg:text-left">
+
+                                <h1
+                                    class="text-5xl font-black leading-tight tracking-tighter text-[var(--text-primary)] md:text-6xl lg:text-7xl">
+
+                                    Empowering Students Through Gamified Learning
+
+                                </h1>
+
+                                <p class="text-lg font-normal text-[var(--text-secondary)]">
+
+                                    Unlock your potential with interactive courses, earn rewards, and connect with a
+                                    vibrant learning community.
+
+                                </p>
+
+                                <div class="flex flex-wrap justify-center gap-4 lg:justify-start">
+
+                                    <!-- Get Started Button -->
+                                    <div class="relative inline-block">
+                                        <button id="getStartedBtn"
+                                            class="flex min-w-[150px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-[var(--primary-color)] text-[var(--text-primary)] text-lg font-bold leading-normal tracking-wide shadow-lg shadow-green-500/30 hover:opacity-90 transition-all duration-300 transform hover:scale-105">
+                                            <span class="truncate">Get Started</span>
+                                        </button>
+
+                                        <!-- Dropdown Menu -->
+                                        <div id="modeMenu"
+                                            class="hidden absolute mt-2 w-48 bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                                            <a href="coursepage.html"
+                                                class="block px-4 py-3 text-gray-700 hover:bg-gray-100 font-medium">Student
+                                                Mode</a>
+                                            <a href="parent.html"
+                                                class="block px-4 py-3 text-gray-700 hover:bg-gray-100 font-medium">Parent
+                                                Mode</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Script -->
+                                    <script>
+                                        const btn = document.getElementById("getStartedBtn");
+                                        const menu = document.getElementById("modeMenu");
+
+                                        btn.addEventListener("click", () => {
+                                            menu.classList.toggle("hidden");
+                                        });
+
+                                        // Optional: close menu when clicking outside
+                                        document.addEventListener("click", (e) => {
+                                            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                                                menu.classList.add("hidden");
+                                            }
+                                        });
+                                    </script>
+
+
+                                    <button
+                                        class="flex min-w-[150px] px-5 py-2 cursor-pointer items-center justify-center overflow-hidden bg-pink-500 text-white hover:bg-pink-600 rounded-full transform transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg">
+                                        <a href="#courses">
+                                            <span class="truncate">Explore Courses</span></a>
+                                    </button>
+
+
+
+                                    <button
+                                        class="flex min-w-[150px] cursor-pointer items-center justify-center overflow-hidden bg-green-600 text-white rounded-full px-6 py-2 hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-200">
+                                        <a href="https://landbot.online/v3/H-3128533-YU9LDSC0J9XA953Z/index.html"
+                                            target="_blank">
+                                            <span class="truncate">USE QUESTY</span>
+                                        </a>
+                                    </button>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="w-full h-auto aspect-square lg:aspect-[4/3]">
+                                <img src="homepgpic.png" alt="Home Page"
+                                    class="w-full h-full object-cover rounded-3xl shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out" />
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+
+                <div class="flex justify-center items-center py-10">
+                    <!-- Main Button -->
+                    <button id="mainBtn" class="relative px-8 py-4 text-lg font-bold text-white rounded-full 
+           bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
+           shadow-xl transform transition-all duration-300 hover:scale-110 hover:shadow-2xl overflow-hidden">
+                        <span class="relative z-10">Explore Games Section</span>
+                        <span class="absolute inset-0 bg-white opacity-10 blur-lg"></span>
+                    </button>
+                </div>
+
+                <!-- Subject Menu -->
+                <div id="subjectMenu" class="flex flex-col items-center gap-4 mt-6">
+                    <button onclick="showMenu('physicsGames')"
+                        class="subjectBtn bg-purple-600 text-white px-6 py-2 rounded-full shadow-md hover:bg-purple-700 transition">Physics</button>
+                    <button onclick="showMenu('chemistryGames')"
+                        class="subjectBtn bg-pink-600 text-white px-6 py-2 rounded-full shadow-md hover:bg-pink-700 transition">Chemistry</button>
+                    <button onclick="showMenu('mathGames')"
+                        class="subjectBtn bg-blue-600 text-white px-6 py-2 rounded-full shadow-md hover:bg-blue-700 transition">Mathematics</button>
+                    <button onclick="showMenu('miniGames')"
+                        class="subjectBtn bg-green-600 text-white px-6 py-2 rounded-full shadow-md hover:bg-green-700 transition">Play
+                        Mini Games</button>
+                </div>
+
+                <!-- Physics Games -->
+                <div id="physicsGames" class="hidden flex flex-col items-center gap-3 mt-4">
+                    <a href="gkopen.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Projectile
+                            Motion Simulation</button></a>
+                    <a href="pendulum.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Pendulum
+                            Controls</button></a>
+                </div>
+
+                <!-- Chemistry Games -->
+                <div id="chemistryGames" class="hidden flex flex-col items-center gap-3 mt-4">
+                    <a href="periodicgame.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Periodic
+                            Table Game</button></a>
+                    <a href="phgame.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">pH
+                            Visualizer Game</button></a>
+                    <a href="aminogame.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Amino
+                            Acid Game</button></a>
+                </div>
+
+                <!-- Mathematics Games -->
+                <div id="mathGames" class="hidden flex flex-col items-center gap-3 mt-4">
+                    <a href="equationgame.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Equation
+                            Solver Challenge</button></a>
+                    <a href="geometrygame.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Geometry
+                            Visualizer</button></a>
+                </div>
+
+                <!-- Mini Games -->
+                <div id="miniGames" class="hidden flex flex-col items-center gap-3 mt-4">
+                    <a href="https://playminigames.net/embed/drones"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Learn
+                            with Drone</button></a>
+                    <a href="puzzle.html"><button
+                            class="gameBtn bg-gray-800 text-white px-5 py-2 rounded-full shadow-md hover:bg-gray-900 transition">Puzzle
+                            Game</button></a>
+                </div>
+
+                <!-- JS -->
+                <script>
+                    function showMenu(menuId) {
+                        // Hide all game menus
+                        document.querySelectorAll('[id$="Games"]').forEach(menu => {
+                            menu.classList.add('hidden');
+                        });
+                        // Show the selected one
+                        document.getElementById(menuId).classList.remove('hidden');
+                    }
+                </script>
+
+
+
+
+
+                <section id="about" class="py-16 bg-[var(--secondary-color)]">
+
+                    <div class="container mx-auto px-6 lg:px-10">
+
+                        <div class="text-center mb-12">
+
+                            <h2 class="text-4xl font-bold tracking-tight text-[var(--text-primary)]">Why Choose
+                                EduQuest?</h2>
+
+                            <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
+
+                                EduQuest offers a unique blend of features designed to make learning engaging,
+                                accessible, and rewarding for every student.
+
+                            </p>
+
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+                            <div
+                                class="flex flex-col items-center text-center gap-4 rounded-2xl bg-white p-6 shadow-sm hover:shadow-xl transition-shadow duration-300">
+
+                                <div
+                                    class="flex items-center justify-center size-16 rounded-full bg-[var(--soft-blue)] text-blue-500">
+
+                                    <svg fill="currentcolor" height="32px" viewBox="0 0 256 256" width="32px"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z">
+                                        </path>
+                                    </svg>
+
+                                </div>
+
+                                <h3 class="text-xl font-bold text-[var(--text-primary)]">Offline + Online Access</h3>
+
+                                <p class="text-[var(--text-secondary)]">Learn anytime, anywhere with our flexible
+                                    learning modes.</p>
+
+                            </div>
+
+                            <div
+                                class="flex flex-col items-center text-center gap-4 rounded-2xl bg-white p-6 shadow-sm hover:shadow-xl transition-shadow duration-300">
+
+                                <div
+                                    class="flex items-center justify-center size-16 rounded-full bg-green-100 text-green-500">
+
+                                    <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M152,120H136V56h8a32,32,0,0,1,32,32,8,8,0,0,0,16,0,48.05,48.05,0,0,0-48-48h-8V24a8,8,0,0,0-16,0V40h-8a48,48,0,0,0,0,96h8v64H104a32,32,0,0,1-32-32,8,8,0,0,0-16,0,48.05,48.05,0,0,0,48,48h16v16a8,8,0,0,0,16,0V216h16a48,48,0,0,0,0-96Zm-40,0a32,32,0,0,1,0-64h8v64Zm40,80H136V136h16a32,32,0,0,1,0,64Z">
+                                        </path>
+                                    </svg>
+
+                                </div>
+
+                                <h3 class="text-xl font-bold text-[var(--text-primary)]">Low Cost Learning</h3>
+
+                                <p class="text-[var(--text-secondary)]">Access quality education at affordable prices.
+                                </p>
+
+                            </div>
+
+                            <div
+                                class="flex flex-col items-center text-center gap-4 rounded-2xl bg-white p-6 shadow-sm hover:shadow-xl transition-shadow duration-300">
+
+                                <div
+                                    class="flex items-center justify-center size-16 rounded-full bg-orange-100 text-orange-500">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-badge-ar" viewBox="0 0 16 16">
+                                        <path
+                                            d="m3.794 11 .47-1.542H6.27L6.739 11H8L5.996 5.001H4.607L2.595 11zm1.503-4.852.734 2.426h-1.52l.734-2.426zm5.598-1.147H8.5V11h1.173V8.763h1.064L11.787 11h1.327L11.91 8.583C12.455 8.373 13 7.779 13 6.9c0-1.147-.773-1.9-2.105-1.9zm-1.222 2.87V5.933h1.05c.63 0 1.05.347 1.05.989 0 .633-.408.95-1.067.95z" />
+                                        <path
+                                            d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" />
+                                    </svg>
+
+                                </div>
+
+                                <a href="https://playminigames.net/embed/phovrcome">
+                                    <h3 class="text-xl font-bold text-[var(--text-primary)]">AR Labs</h3>
+
+                                    <p class="text-[var(--text-secondary)]">Experience immersive learning with our
+                                        Augmented reality labs.</p>
+                                </a>
+                            </div>
+
+                            <div
+                                class="flex flex-col items-center text-center gap-4 rounded-2xl bg-white p-6 shadow-sm hover:shadow-xl transition-shadow duration-300">
+
+                                <div
+                                    class="flex items-center justify-center size-16 rounded-full bg-yellow-100 text-yellow-500">
+
+                                    <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M232,64H208V56a16,16,0,0,0-16-16H64A16,16,0,0,0,48,56v8H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-28.49,64.64-63.51,64.9H128a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z">
+                                        </path>
+                                    </svg>
+
+                                </div>
+
+                                <h3 class="text-xl font-bold text-[var(--text-primary)]">Scholarship Rewards</h3>
+
+                                <p class="text-[var(--text-secondary)]">Earn scholarships and other exciting rewards for
+                                    your achievements.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+
+
+
+                <section id="courses" class="py-16 bg-[var(--soft-blue)]">
+                    <div class="container mx-auto px-6 lg:px-10">
+
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl font-bold tracking-tight text-[var(--text-primary)]">
+                                Explore Our Courses
+                            </h2>
+                            <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
+                                Dive into a variety of subjects designed to be fun, engaging, and educational.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+                            <!-- Mathematics -->
+                            <a href="mathshome.html" class="block">
+                                <div
+                                    class="bg-white rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-teal-300/40 flex flex-col h-full">
+                                    <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                        style='background-image: url("math.png");'></div>
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <h3 class="text-xl font-bold text-[var(--text-primary)]">Mathematics</h3>
+                                        <p class="mt-2 text-[var(--text-secondary)] flex-grow">
+                                            Master mathematical concepts and problem-solving.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Chemistry -->
+                            <a href="chemhome.html" class="block">
+                                <div
+                                    class="bg-white rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-green-300/40 flex flex-col h-full">
+                                    <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                        style='background-image: url("chem.png");'></div>
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <h3 class="text-xl font-bold text-[var(--text-primary)]">Chemistry</h3>
+                                        <p class="mt-2 text-[var(--text-secondary)] flex-grow">
+                                            Scientific study of matter & the changes it undergoes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Physics -->
+                            <a href="phyopen.html" class="block">
+                                <div
+                                    class="bg-white rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-300/40 flex flex-col h-full">
+                                    <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                        style='background-image: url("phy.png");'></div>
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <h3 class="text-xl font-bold text-[var(--text-primary)]">Physics</h3>
+                                        <p class="mt-2 text-[var(--text-secondary)] flex-grow">
+                                            The study of matter, energy, motion, and the forces that govern the
+                                            universe.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- General Knowledge -->
+                            <a href="gkopen.html" class="block">
+                                <div
+                                    class="bg-white rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-300/40 flex flex-col h-full">
+                                    <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                        style='background-image: url("gk.png");'></div>
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <h3 class="text-xl font-bold text-[var(--text-primary)]">General Knowledge</h3>
+                                        <p class="mt-2 text-[var(--text-secondary)] flex-grow">
+                                            The awareness and understanding of a wide range of facts, information, and
+                                            topics from different fields of life.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+                <section id="rewards" class="py-16">
+
+                    <div class="container mx-auto px-6 lg:px-10">
+
+                        <div class="text-center mb-12">
+
+                            <h2 class="text-4xl font-bold tracking-tight text-[var(--text-primary)]">Unlock Amazing
+                                Rewards</h2>
+
+                            <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
+
+                                Your hard work pays off with real-world rewards.
+
+                            </p>
+
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                            <a href="scholarship.html" class="block">
+                                <div class="flex flex-col gap-4 rounded-2xl overflow-hidden group">
+
+                                    <div class="w-full aspect-square bg-center bg-no-repeat bg-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtLSd6Tss1EtfFFEb0qaHeS3bj7wZDIui81zPOZnx2u4gMGa03KLM1RzidnsqS3MgT8_GbMslgZVeMNollrodGYWpz8o8Or_FpmRklrR6QIWsCunjwLifU6FWFN3tDmmmZHVtMrqqLkeTIWQuCoi-HiY1_T1Df0nbVP0kRTfSkLFKQLadDGXah9wQD1Eb5m4DafxFxgvLo3FLMFRMfUVTtHi803QbwDPkO2G5_La5p6PP5Y55A3nqSGkum6X18twZS6-Wbv1z_TgM");'>
+                                    </div>
+
+                                    <div>
+                                        <h3 class="text-xl font-bold text-[var(--text-primary)]">Scholarships</h3>
+                                        <p class="text-[var(--text-secondary)] mt-1">Unlock financial support for your
+                                            education.</p>
+                                    </div>
+
+                                </div>
+                            </a>
+
+                            <div class="flex flex-col gap-4 rounded-2xl overflow-hidden group">
+                                <a href="stationarykit.html" class="block">
+                                    <div class="w-full aspect-square bg-center bg-no-repeat bg-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCyMF7cfkIBjQ8-AxvIrG0rZ_Tjq_vgo4uS238DmPcMPdHo7uOw6nm91uMzZKza4ZSp9RFpGz8KpjZhnGPq3prBaLjgk6U6Lmzq93Gqa8m0DUiJgbkm1223nOT-_Si2tPOIKjl6QX1wedC50dXlbcyxiHNuEVXegIJSsDtFD7xfIGf661s1SQP_n23R6E66nKxo_EKXWll_Fs7MF2kGm4nZBvJWOn8G5q7JdEBgvrNgGBKY8qRnh_tGn5EL-6VIql9BbjmDG4jHVSw");'>
+                                    </div>
+
+                                    <div>
+
+                                        <h3 class="text-xl font-bold text-[var(--text-primary)]">Stationery Kits</h3>
+
+                                        <p class="text-[var(--text-secondary)] mt-1">Get essential learning supplies to
+                                            boost your
+                                            studies.</p>
+
+                                    </div>
+
+                            </div>
+
+                            <div class="flex flex-col gap-4 rounded-2xl overflow-hidden group">
+
+                                <div class="w-full aspect-square bg-center bg-no-repeat bg-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7RQ5L3WdA-fRrxoA49zcXrUJjuTJtnIOrSuu7M-pfIbPF6HYXuPltWNOmM6zVYe-EsKSlESzeLPas8W3EU3s0mEIcCzNkUdeyGHsnzw4qrWEguwIdlOHN6FHlyX11-WwUuXF6mtjIDeBFqzRTjGa0-beeIcSaeqwAaFrFOxTv2lLhB8ZGYBgq2_0TI-c42n1TVxRR6o0MCsIz9Q5d7Pr3WHEzuDTxbR4dONetTDhhIvEhNhJ5gsDlG4cAXdWcW6_3P8WZVOUR-1M");'>
+                                </div>
+
+                                <div>
+
+                                    <h3 class="text-xl font-bold text-[var(--text-primary)]">Shopping Vouchers</h3>
+
+                                    <p class="text-[var(--text-secondary)] mt-1">Enjoy discounts on a wide range of
+                                        products.</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+
+                <section id="progress" class="py-16">
+
+                    <div class="container mx-auto px-6 lg:px-10">
+
+                        <div class="text-center mb-12">
+
+                            <h2 class="text-4xl font-bold tracking-tight text-[var(--text-primary)]">Your Progress</h2>
+
+                            <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
+
+                                Stay motivated by tracking your experience points, collecting badges, and climbing the
+                                leaderboard.
+
+                            </p>
+
+                        </div>
+
+                        <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+
+                            <div class="flex flex-col gap-12">
+
+                                <div>
+
+                                    <div class="flex justify-between items-center mb-2">
+
+                                        <p class="text-lg font-bold text-[var(--text-primary)]">XP Progress</p>
+
+                                        <p class="text-lg font-bold text-[var(--primary-color)]">7500 / 10000</p>
+
+                                    </div>
+
+                                    <div class="w-full bg-gray-200 rounded-full h-4">
+
+                                        <div class="bg-[var(--primary-color)] h-4 rounded-full" style="width: 75%;">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+
+                                    <div class="flex flex-col items-center gap-3">
+
+                                        <div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-full"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB63ZD4urJIQsEJQTdkJsC9pSUsMGr3rYDSRHOWjhE1eD-41gbHSnVzOmh1sEfDSSthPtcyAore45QSCbJmDAKW7sykLEEzj3JX20hOJiPnxtbDRDZaVXlOv6ObsTc4Ps8Tu4HPRq70bkBO9UDufy6NA8cdMauKSzndJROjAvB49Gou3YjFe0PefXgeZS_ceK0E26f4lJX_vl0zSgu8BuHCBbJU9913Na4FYRG3T23HZiUFT1NZP5-YRLZ5WK_lxpnxANtdqqX4oQo");'>
+                                        </div>
+
+                                        <div>
+
+                                            <p class="font-bold text-[var(--text-primary)]">Course Master</p>
+
+                                            <p class="text-sm text-[var(--text-secondary)]">100% Completion</p>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="flex flex-col items-center gap-3">
+
+                                        <div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-full"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUsomUDbzGoMd3dujtMwW0v02FvsEZ7VQ2TkFDU71uWf0NEhxBjFFzQLroeOakLXszSoixE5venpMWTGtdjmMEmmp3CMdYJFcBs8JD6k2N4rA_u25FDVAtD2Idv1yVW_77Jhle7BSNaiwN8v9ealpijEisSjfsCSr2EacEZyDg1CTIwpAUr_BnDwUjsA1npjl9f7GNOrXox1TJZmZjMGD1no0JQdzh1hRGFtNkPdQd--LYigDwqS_aWUWJSvDtwfvihelK-6yNuh4");'>
+                                        </div>
+
+                                        <div>
+
+                                            <p class="font-bold text-[var(--text-primary)]">Leaderboard King</p>
+
+                                            <p class="text-sm text-[var(--text-secondary)]">Top 10 Rank</p>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="flex flex-col items-center gap-3">
+
+                                        <div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-full"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRNtjruHvlmg2faR_1BAWNkDqbrJdkzIlOSoW0vOCMPyYlrDIJSlJ1M2WI-8Bbr381AvQwKkvM9HSy4qOOfiaQBVlFdt9jomtaHhtx3EMhGQWCpMYeZHM_3Qtd-8y_PcX-lX_IpgNHni3FIHT-uRtwwhmwxmGNQs8fxxo4nRG1YLi9potSUxoxws1TUStWP-PXDzToXQcX9mLV-dOmkutq8A9oYv12DodHkIGSvdjT3R1GGZYcbif_YQTNpTWpwaPH9FFT_wH9RU4");'>
+                                        </div>
+
+                                        <div>
+
+                                            <p class="font-bold text-[var(--text-primary)]">XP Explorer</p>
+
+                                            <p class="text-sm text-[var(--text-secondary)]">5000 XP Earned</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="overflow-x-auto">
+
+                                    <table class="w-full text-left">
+
+                                        <thead class="bg-gray-50">
+
+                                            <tr>
+
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase">
+                                                    Rank</th>
+
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase">
+                                                    Student</th>
+
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase">
+                                                    XP
+                                                </th>
+
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody class="bg-white divide-y divide-gray-200">
+
+                                            <tr>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-lg font-bold text-gray-700">
+                                                    1</td>
+
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap font-medium text-[var(--text-primary)]">
+                                                    Dipam
+                                                    Agarwal</td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-[var(--text-secondary)]">
+                                                    12,500</td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-lg font-bold text-gray-700">
+                                                    2</td>
+
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap font-medium text-[var(--text-primary)]">
+                                                    Sounak Saha</td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-[var(--text-secondary)]">
+                                                    11,800</td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-lg font-bold text-gray-700">
+                                                    3</td>
+
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap font-medium text-[var(--text-primary)]">
+                                                    Titas
+                                                    Advani</td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-[var(--text-secondary)]">
+                                                    10,200</td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+
+                <section id="feedback" class="py-16 bg-[var(--secondary-color)]">
+
+                    <div class="container mx-auto px-6 lg:px-10">
+
+                        <div class="text-center mb-12">
+
+                            <h2 class="text-4xl font-bold tracking-tight text-[var(--text-primary)]">What Our Students
+                                Say</h2>
+
+                            <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
+
+                                We are proud to have touched the lives of so many students.
+
+                            </p>
+
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                            <div class="bg-white p-8 rounded-2xl shadow-lg">
+
+                                <div class="flex items-center gap-4 mb-4">
+
+                                    <div class="size-14 rounded-full bg-cover bg-center"
+                                        style='background-image: url("person1.png");'></div>
+
+                                    <div>
+
+                                        <p class="font-bold text-[var(--text-primary)]">Aaryan Kirtania</p>
+
+                                        <div class="flex text-yellow-400 mt-1">
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="text-[var(--text-secondary)]">"EduQuest has transformed my learning
+                                    experience! The
+                                    gamified approach keeps me motivated, and the AR labs are incredibly engaging."</p>
+
+                            </div>
+
+                            <div class="bg-white p-8 rounded-2xl shadow-lg">
+
+                                <div class="flex items-center gap-4 mb-4">
+
+                                    <div class="size-14 rounded-full bg-cover bg-center"
+                                        style='background-image: url("person2.png");'></div>
+
+                                    <div>
+
+                                        <p class="font-bold text-[var(--text-primary)]">Jahnvi Srivastava</p>
+
+                                        <div class="flex text-yellow-400 mt-1">
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg class="text-gray-300" fill="currentColor" height="20px"
+                                                viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z">
+                                                </path>
+                                            </svg>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="text-[var(--text-secondary)]">"I love the flexibility of offline access. It's
+                                    perfect for
+                                    studying on the go, and the low-cost courses are a game-changer."</p>
+
+                            </div>
+
+                            <div class="bg-white p-8 rounded-2xl shadow-lg">
+
+                                <div class="flex items-center gap-4 mb-4">
+
+                                    <div class="size-14 rounded-full bg-cover bg-center"
+                                        style='background-image: url("person3.png");'></div>
+
+                                    <div>
+
+                                        <p class="font-bold text-[var(--text-primary)]">Sourin Ganguly</p>
+
+                                        <div class="flex text-yellow-400 mt-1">
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z">
+                                                </path>
+                                            </svg>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="text-[var(--text-secondary)]">"The scholarship rewards program is amazing!
+                                    It's helped me
+                                    pursue my educational goals without financial stress. EduQuest is a fantastic
+                                    platform."</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+            <footer class="bg-white">
+
+                <div class="container mx-auto px-6 lg:px-10 py-12">
+
+                    <div class="flex flex-col items-center text-center gap-8">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="size-8 text-[var(--primary-color)]">
+
+                                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor">
+                                    </path>
+                                </svg>
+
+                            </div>
+
+                        
+                            <section id="footer" class="py-16 bg-[var(--secondary-color)]">
+                                <!-- Footer Section -->
+                                <footer id="footer" class="bg-white py-8 mt-12">
+                                    <div class="max-w-6xl mx-auto px-4 text-center">
+                                        <h2 class="text-[var(--text-primary)] text-2xl font-bold tracking-tighter mb-6">
+                                            EduQuest
+                                        </h2>
+                                        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-8 mb-6">
+                                            <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                                                href="#">About Us</a>
+                                            <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                                                href="#">Contact</a>
+                                            <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                                                href="#">Privacy Policy</a>
+                                            <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                                                href="#">Terms of Service</a>
+                                        </div>
+                                        <div class="flex justify-center gap-6 mb-6">
+                                            <!-- Twitter -->
+                                            <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                                                href="#">
+                                                <svg fill="currentColor" height="24px" viewBox="0 0 256 256"
+                                                    width="24px">
+                                                    <path
+                                                        d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Z">
+                                                    </path>
+                                                </svg>
+                                            </a>
+                                            <!-- Facebook -->
+                                            <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                                                href="#">
+                                                <svg fill="currentColor" height="24px" viewBox="0 0 256 256"
+                                                    width="24px">
+                                                    <path
+                                                        d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z">
+                                                    </path>
+                                                </svg>
+                                            </a>
+                                            <!-- Instagram -->
+                                            <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                                                href="#">
+                                                <svg fill="currentColor" height="24px" viewBox="0 0 256 256"
+                                                    width="24px">
+                                                    <path
+                                                        d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                                                    </path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <p class="text-[var(--text-secondary)] text-sm">© 2024 EduQuest. All rights
+                                            reserved.
+                                        </p>
+                                    </div>
+                                </footer>
+
+                            </section>
+
+
+</body>
+
+</html>

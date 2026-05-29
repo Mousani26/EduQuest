@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>EduQuest - Parent Dashboard</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --teal: #008080;
+      --soft-purple: #a484e9;
+      --muted-green: #6aaa64;
+      --orange: #f59e0b;
+      --red-priority: #ef4444;
+      --yellow-alert: #facc15;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(926px, 100dvh);
+      background-color: #121212;
+    }
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .sidebar-open .sidebar {
+      transform: translateX(0);
+    }
+    .sidebar-open .overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#121212] font-[Inter,sans-serif] text-gray-200">
+<div :class="{ 'sidebar-open': sidebarOpen }" class="relative min-h-screen" x-data="{ sidebarOpen: false }">
+<aside class="sidebar fixed top-0 left-0 z-40 w-64 h-full bg-[#1e1e1e] p-5">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold text-white">EduQuest</h2>
+<button @click="sidebarOpen = false" class="text-gray-400 hover:text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center p-2 text-base font-normal text-white rounded-lg bg-gray-700" href="#">
+<span class="material-symbols-outlined text-[var(--teal)]">dashboard</span>
+<span class="ml-3">Dashboard</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="ml-3">Child Overview</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="ml-3">Progress &amp; Trackers</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="ml-3">Assignments &amp; Quizzes</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="ml-3">Attendance</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">emoji_events</span>
+<span class="ml-3">Achievements &amp; Rewards</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="ml-3">AI Insights &amp; Weak Areas</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">download</span>
+<span class="ml-3">Reports</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="ml-3">Calendar</span>
+</a>
+<a class="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="ml-3">Support / AI Help</span>
+</a>
+</nav>
+</aside>
+<div @click="sidebarOpen = false" class="overlay fixed inset-0 z-30 bg-black/50"></div>
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-20 flex items-center justify-between bg-[#121212]/80 p-4 backdrop-blur-sm">
+<button @click="sidebarOpen = true" class="text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-bold font-[Poppins,sans-serif] tracking-tight">EduQuest</h1>
+<div class="flex items-center gap-4">
+<button class="text-white"><span class="material-symbols-outlined">search</span></button>
+<button class="text-white"><span class="material-symbols-outlined">psychology</span></button>
+<div class="relative">
+<button class="text-white"><span class="material-symbols-outlined text-2xl">notifications</span></button>
+<div class="absolute -right-1.5 -top-1.5 w-4 h-4 flex items-center justify-center rounded-full bg-[var(--red-priority)] text-white text-[10px] font-bold border-2 border-[#121212]">5</div>
+</div>
+<img alt="Parent Profile" class="h-8 w-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPTQssILPlR08UluHIzBRIqWmCNGo7FU1P90_eEMAuYZ4n99-vNv6wgMr3pP_kBp7nTnDQ1xd03XOyUNTNq4_psjLtchs-SPDQVilZ0WDq9TcyNYduyMZc_rl1h1xEToWGF_ACxvnyv6ThRiBP5ereA5BRzDiWuR_rrEhSKWJN3_A4qk3mvL2xg23JCs4VlCcZ9jjtCsLbD7VhMBytNi1n1TIeSYK-cELAXZfTaspMiiQ9tUUrhCyqBZwFdRXx08JjYRCfQBUW65PM"/>
+</div>
+</header>
+<main class="flex-grow p-4 space-y-6">
+<section class="rounded-xl bg-[#1e1e1e] p-4 shadow-lg shadow-black/20">
+<div class="flex items-center gap-4">
+<img alt="Ethan Carter" class="size-16 rounded-full border-2 border-[var(--teal)] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkKn-kp7TVogXDJ3J_bvvRknvHatdlH0lpFbIht2Tq66ymDKhJE1ytjfKakyCgI238ildoVTBORCW4NwvVVhbUMDUB2g7Z1J443ub87Pi8TQlXD2Z3-y5m9gFxi-9DJlx9Mb8srG0t0soZyctPmuE8dvsNo46TWMj6pSPbVgyR5cr9X6l6sflHu5I1O4hyh1SqjKjwbdFc3ru5OuIJC3sAiEBGWJuzpXLBAJXZyEA1jnK2pBPIiV1kDVENvWoW2FcsvNtTefWaHG3g"/>
+<div class="flex-1">
+<p class="text-lg font-bold font-[Poppins,sans-serif]">Ethan Carter</p>
+<p class="text-sm text-gray-400">Grade 7</p>
+<div class="flex items-center text-xs text-gray-400 mt-2 gap-3">
+<span><span class="text-[var(--muted-green)]">●</span> Present</span>
+<span><span class="text-[var(--orange)]">●</span> 2 Pending</span>
+<span><span class="text-[var(--soft-purple)]">●</span> Quiz Fri</span>
+</div>
+</div>
+<div class="relative size-20">
+<svg class="size-full" viewBox="0 0 36 36">
+<path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3"></path>
+<path class="stroke-current text-[var(--teal)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke-dasharray="85, 100" stroke-linecap="round" stroke-width="3" style="filter: drop-shadow(0 0 3px var(--teal));"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-base font-bold text-white">85%</span>
+<span class="text-xs text-gray-400">Overall</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold mb-3 font-[Poppins,sans-serif]">AI Alerts</h2>
+<div class="space-y-3">
+<div class="bg-[#1e1e1e] rounded-lg p-3 flex items-center gap-3 shadow-lg shadow-black/20 hover:shadow-red-900/20 transition-shadow">
+<span class="material-symbols-outlined text-[var(--red-priority)] text-2xl">error</span>
+<p class="text-sm text-gray-300 flex-1">Child missed <span class="font-bold">2</span> assignments this week.</p>
+<button class="text-xs text-[var(--teal)] font-semibold">Details</button>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-3 flex items-center gap-3 shadow-lg shadow-black/20 hover:shadow-yellow-900/20 transition-shadow">
+<span class="material-symbols-outlined text-[var(--yellow-alert)] text-2xl">hourglass_empty</span>
+<p class="text-sm text-gray-300 flex-1">Low engagement: Ethan spent less than <span class="font-bold">30 mins</span> today.</p>
+<button class="text-xs text-[var(--teal)] font-semibold">View Stats</button>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-3 flex items-center gap-3 shadow-lg shadow-black/20 hover:shadow-red-900/20 transition-shadow">
+<span class="material-symbols-outlined text-[var(--red-priority)] text-2xl">trending_down</span>
+<p class="text-sm text-gray-300 flex-1">Performance drop in <span class="font-bold">Chemistry</span>: scores decreased by <span class="font-bold">15%</span>.</p>
+<button class="text-xs text-[var(--teal)] font-semibold">Analyze</button>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-3 flex items-center gap-3 shadow-lg shadow-black/20 hover:shadow-purple-900/20 transition-shadow">
+<span class="material-symbols-outlined text-[var(--soft-purple)] text-2xl">alarm</span>
+<p class="text-sm text-gray-300 flex-1">Upcoming deadline: <span class="font-bold">History Quiz</span> is tomorrow.</p>
+<button class="text-xs text-[var(--teal)] font-semibold">Checklist</button>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-3 flex items-center gap-3 shadow-lg shadow-black/20 hover:shadow-green-900/20 transition-shadow">
+<span class="material-symbols-outlined text-[var(--muted-green)] text-2xl">emoji_events</span>
+<p class="text-sm text-gray-300 flex-1">Achievement unlocked: Ethan earned the <span class="font-bold">'Math Whiz'</span> badge!</p>
+<button class="text-xs text-[var(--teal)] font-semibold">Celebrate</button>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold mb-3 font-[Poppins,sans-serif]">Student Trackers</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-[#1e1e1e] rounded-lg p-3">
+<h3 class="font-semibold text-sm mb-2">Engagement</h3>
+<div class="h-20 w-full">
+<svg class="w-full h-full" fill="none" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+<path d="M 0 40 C 10 10, 20 10, 30 25 S 50 40, 60 30 S 80 15, 90 20 L 100 25" stroke="var(--muted-green)" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<p class="text-xs text-gray-400 mt-1">Daily Time: 1.5h</p>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-3">
+<h3 class="font-semibold text-sm mb-2">Performance</h3>
+<div class="h-20 w-full">
+<svg class="w-full h-full" fill="none" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+<path d="M 0 45 L 20 30 L 40 35 L 60 20 L 80 25 L 100 10" stroke="var(--teal)" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<p class="text-xs text-gray-400 mt-1">Avg Score: 88%</p>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-3 col-span-2">
+<h3 class="font-semibold text-sm mb-2">Assignment Tracker</h3>
+<div class="flex justify-between text-xs text-gray-400">
+<span>Completed: 10/12</span>
+<span>Overdue: 0</span>
+</div>
+<div class="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+<div class="bg-[var(--teal)] h-1.5 rounded-full" style="width: 83%"></div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold mb-3 font-[Poppins,sans-serif]">Weak Area Improvement Zone</h2>
+<div class="space-y-3">
+<div class="bg-[#1e1e1e] rounded-lg p-4 shadow-lg shadow-black/20 hover:shadow-purple-900/20 transition-shadow">
+<h3 class="font-semibold text-[var(--soft-purple)] mb-1">Chemistry: Buffers</h3>
+<p class="text-sm text-gray-300">AI Suggestion: Watch 2 short videos on Ionic Equilibrium to build foundational understanding.</p>
+<button class="text-xs text-[var(--teal)] font-semibold mt-2">View Resources</button>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-4 shadow-lg shadow-black/20 hover:shadow-orange-900/20 transition-shadow">
+<h3 class="font-semibold text-[var(--orange)] mb-1">History: Ancient Civilizations</h3>
+<p class="text-sm text-gray-300">AI Suggestion: Needs more practice. Attempt a 10-question quiz on key dates and figures.</p>
+<button class="text-xs text-[var(--teal)] font-semibold mt-2">Start Quiz</button>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold mb-3 font-[Poppins,sans-serif]">Attendance</h2>
+<div class="bg-[#1e1e1e] rounded-lg p-4 shadow-lg shadow-black/20">
+<div class="grid grid-cols-7 text-center text-xs text-gray-500 mb-2">
+<span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-sm">
+<div class="aspect-square rounded-md bg-[var(--muted-green)]/30 flex items-center justify-center"></div>
+<div class="aspect-square rounded-md bg-[var(--muted-green)]/30 flex items-center justify-center"></div>
+<div class="aspect-square rounded-md bg-red-500/20 flex items-center justify-center"></div>
+<div class="aspect-square rounded-md bg-[var(--muted-green)]/30 flex items-center justify-center"></div>
+<div class="aspect-square rounded-md bg-[var(--muted-green)]/30 flex items-center justify-center"></div>
+<div class="aspect-square rounded-md bg-gray-700 flex items-center justify-center"></div>
+<div class="aspect-square rounded-md bg-gray-700 flex items-center justify-center"></div>
+</div>
+<p class="text-xs text-gray-400 mt-3 text-center">AI Insight: Performance is 20% higher when attendance is above 85%.</p>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold mb-3 font-[Poppins,sans-serif]">Achievements &amp; Rewards</h2>
+<div class="flex justify-around bg-[#1e1e1e] rounded-lg p-4 shadow-lg shadow-black/20">
+<div class="text-center">
+<span class="material-symbols-outlined text-[var(--orange)] text-3xl">military_tech</span>
+<p class="font-bold text-sm">5</p>
+<p class="text-xs text-gray-400">Badges</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-[var(--orange)] text-3xl">emoji_events</span>
+<p class="font-bold text-sm">1500</p>
+<p class="text-xs text-gray-400">Points</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-[var(--orange)] text-3xl">leaderboard</span>
+<p class="font-bold text-sm">#12</p>
+<p class="text-xs text-gray-400">Rank</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold mb-3 font-[Poppins,sans-serif]">Reports</h2>
+<button class="flex w-full items-center justify-center gap-2 rounded-lg h-12 px-4 bg-[var(--teal)] text-white text-sm font-bold shadow-lg shadow-[var(--teal)]/20 hover:bg-[var(--teal)]/90 transition-colors">
+<span class="material-symbols-outlined">download</span>
+<span>Download Report Card</span>
+</button>
+</section>
+<section>
+<div class="flex justify-between items-center mb-3">
+<h2 class="text-lg font-semibold font-[Poppins,sans-serif]">Calendar</h2>
+<div class="flex items-center gap-1 text-xs text-gray-400">
+<span class="material-symbols-outlined text-sm">autorenew</span>
+<span>Auto-updating</span>
+</div>
+</div>
+<div class="bg-[#1e1e1e] rounded-lg p-4 shadow-lg shadow-black/20">
+<div class="flex items-center justify-between mb-4">
+<button class="text-white"><span class="material-symbols-outlined">chevron_left</span></button>
+<p class="font-bold">October 2024</p>
+<button class="text-white"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+<div class="grid grid-cols-7 text-center text-xs text-gray-500">
+<div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+</div>
+<div class="grid grid-cols-7 text-center text-sm mt-2 gap-y-1">
+<div class="py-1 text-gray-600">29</div>
+<div class="py-1 text-gray-600">30</div>
+<div class="py-1">1</div>
+<div class="py-1">2</div>
+<div class="py-1 relative"><span class="relative z-10">3</span>
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--muted-green)]"></div>
+</div>
+<div class="py-1">4</div>
+<div class="py-1 relative"><span class="relative z-10">5</span>
+<div class="absolute inset-0 flex items-center justify-center"><div class="size-7 rounded-full border-2 border-[var(--teal)]"></div></div>
+</div>
+<div class="py-1">6</div>
+<div class="py-1">7</div>
+<div class="py-1">8</div>
+<div class="py-1">9</div>
+<div class="py-1">10</div>
+<div class="py-1">11</div>
+<div class="py-1">12</div>
+<div class="py-1 relative"><span class="relative z-10">13</span>
+<div class="absolute inset-0 flex items-center justify-center"><div class="size-7 rounded-full border-2 border-[var(--soft-purple)]"></div></div>
+</div>
+<div class="py-1">14</div>
+<div class="py-1">15</div>
+<div class="py-1">16</div>
+<div class="py-1 relative"><span class="relative z-10">17</span>
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--red-priority)]"></div>
+</div>
+<div class="py-1">18</div>
+<div class="py-1">19</div>
+<div class="py-1">20</div>
+<div class="py-1">21</div>
+<div class="py-1">22</div>
+<div class="py-1">23</div>
+<div class="py-1">24</div>
+<div class="py-1">25</div>
+<div class="py-1">26</div>
+<div class="py-1">27</div>
+<div class="py-1">28</div>
+<div class="py-1 relative"><span class="relative z-10">29</span>
+<div class="absolute inset-0 flex items-center justify-center"><div class="size-7 rounded-full border-2 border-[var(--orange)]"></div></div>
+</div>
+<div class="py-1">30</div>
+<div class="py-1">31</div>
+</div>
+<div class="mt-4 text-xs text-gray-400 space-y-2">
+<p>The calendar displays upcoming tests, quizzes, deadlines, and learning sessions.</p>
+<div class="flex flex-wrap gap-x-4 gap-y-1">
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-[var(--red-priority)]"></div>
+<span>High Priority</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-[var(--muted-green)]"></div>
+<span>Completed</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full border border-[var(--teal)]"></div>
+<span>Learning Session</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full border border-[var(--soft-purple)]"></div>
+<span>Quiz</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full border border-[var(--orange)]"></div>
+<span>Test</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="sticky bottom-0 bg-[#1e1e1e]/80 backdrop-blur-sm border-t border-t-gray-700">
+<nav class="flex justify-around p-2">
+<a class="flex flex-col items-center gap-1 text-[var(--teal)]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-xs font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-white" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs font-medium">Child</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-white" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-xs font-medium">Progress</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-white" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-xs font-medium">Insights</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-white" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-xs font-medium">Help</span>
+</a>
+</nav>
+</footer>
+</div>
+</div>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body></html>

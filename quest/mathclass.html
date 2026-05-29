@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduQuest - Select Your Math Class</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --bg-color: #0D1117;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --glow-color: rgba(0, 255, 255, 0.5);
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .glassmorphism {
+      background: rgba(17, 24, 39, 0.6);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+    }
+    .card-glow {
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 15px 5px var(--glow-color);
+    }
+    .card-gradient-1 {
+      background-image: linear-gradient(to bottom right, rgba(0, 150, 255, 0.1), rgba(0, 50, 100, 0.1));
+    }
+    .card-gradient-2 {
+      background-image: linear-gradient(to bottom right, rgba(0, 255, 150, 0.1), rgba(0, 100, 50, 0.1));
+    }
+    .card-gradient-3 {
+      background-image: linear-gradient(to bottom right, rgba(255, 150, 0, 0.1), rgba(100, 50, 0, 0.1));
+    }
+    .card-gradient-4 {
+      background-image: linear-gradient(to bottom right, rgba(150, 0, 255, 0.1), rgba(50, 0, 100, 0.1));
+    }
+     .card-gradient-5 {
+      background-image: linear-gradient(to bottom right, rgba(255, 0, 150, 0.1), rgba(100, 0, 50, 0.1));
+    }
+     .card-gradient-6 {
+      background-image: linear-gradient(to bottom right, rgba(0, 255, 255, 0.1), rgba(0, 100, 100, 0.1));
+    }
+     .card-gradient-7 {
+      background-image: linear-gradient(to bottom right, rgba(255, 255, 0, 0.1), rgba(100, 100, 0, 0.1));
+    }
+    .fade-in-scale-up {
+        animation: fadeInScaleUp 0.5s ease-in-out forwards;
+    }
+    @keyframes fadeInScaleUp {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .particle-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        background: var(--bg-color);
+    }.particle {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--glow-color);
+        animation: float 25s infinite linear;
+        opacity: 0;
+    }
+    @keyframes float {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        50% { opacity: 0.7; }
+        100% { transform: translateY(-100vh) translateX(20vw); opacity: 0;}
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-900 text-white">
+<div class="particle-bg">
+<div class="particle" style="width: 2px; height: 2px; left: 10%; animation-duration: 20s; animation-delay: -5s;"></div>
+<div class="particle" style="width: 4px; height: 4px; left: 25%; animation-duration: 15s; animation-delay: -2s;"></div>
+<div class="particle" style="width: 3px; height: 3px; left: 50%; animation-duration: 30s; animation-delay: -10s;"></div>
+<div class="particle" style="width: 2px; height: 2px; left: 75%; animation-duration: 18s; animation-delay: -8s;"></div>
+<div class="particle" style="width: 5px; height: 5px; left: 90%; animation-duration: 12s; animation-delay: 0s;"></div>
+</div>
+<div class="relative min-h-screen w-full flex flex-col justify-center items-center p-4 glassmorphism fade-in-scale-up">
+<div class="absolute top-6 left-6">
+<button class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300">
+<span class="material-symbols-outlined text-white">
+                    arrow_back
+                </span>
+</button>
+</div>
+<div class="w-full max-w-md text-center">
+<h1 class="text-4xl font-bold mb-10 text-white tracking-wide">Select Your Math Class</h1>
+<div class="grid grid-cols-2 gap-5">
+<a class="group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 card-gradient-1 card-glow transition-all duration-300 transform hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-4xl text-cyan-300 mb-2">compass_calibration</span>
+<span class="text-2xl font-semibold">Class 6</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 card-gradient-2 card-glow transition-all duration-300 transform hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-4xl text-green-300 mb-2">straighten</span>
+<span class="text-2xl font-semibold">Class 7</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 card-gradient-3 card-glow transition-all duration-300 transform hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-4xl text-orange-300 mb-2">square</span>
+<span class="text-2xl font-semibold">Class 8</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 card-gradient-4 card-glow transition-all duration-300 transform hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-4xl text-purple-300 mb-2">change_history</span>
+<span class="text-2xl font-semibold">Class 9</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 card-gradient-5 card-glow transition-all duration-300 transform hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-4xl text-pink-300 mb-2">circle</span>
+<span class="text-2xl font-semibold">Class 10</span>
+</a>
+<a href="mathbranches11.html" class="group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 card-gradient-6 card-glow transition-all duration-300 transform hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-4xl text-teal-300 mb-2">view_in_ar</span>
+<span class="text-2xl font-semibold">Class 11</span>
+</a>
+<a class="col-span-2 group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 card-gradient-7 card-glow transition-all duration-300 transform hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-4xl text-yellow-300 mb-2">public</span>
+<span class="text-2xl font-semibold">Class 12</span>
+</a>
+</div>
+</div>
+</div>
+
+</body></html>

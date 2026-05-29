@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduQuest - Branch &amp; Chapter Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+          --background-color: #0d1117;
+          --glassmorphism-bg: rgba(13, 17, 23, 0.6);
+          --glassmorphism-border: rgba(255, 255, 255, 0.1);
+          --primary-glow: #10B981;--secondary-glow: #059669;--text-primary: #ffffff;
+          --text-secondary: #a3b8d0;
+          --primary-glow-transparent: rgba(16, 185, 129, 0.2);
+        }
+        body {
+          background-color: var(--background-color);
+          color: var(--text-primary);
+          font-family: 'Inter', sans-serif;
+        }
+        .popup-container {
+            background: url('https://i.imgur.com/gKCiG2C.jpg') no-repeat center center fixed;background-size: cover;
+        }
+        .glassmorphism-panel {
+          background: var(--glassmorphism-bg);
+          backdrop-filter: blur(20px);
+          border: 1px solid var(--glassmorphism-border);
+        }
+        .glowing-border {
+          position: relative;
+        }
+        .glowing-border::before {
+          content: '';
+          position: absolute;
+          inset: -1px;
+          border-radius: inherit;
+          background: conic-gradient(from 180deg at 50% 50%, var(--primary-glow), var(--secondary-glow), var(--primary-glow));
+          z-index: -1;
+          animation: rotate 4s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .chapter-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px var(--primary-glow-transparent);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: var(--secondary-glow);
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--primary-glow);
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #14C891;
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[var(--background-color)]">
+<div class="fixed inset-0 popup-container flex flex-col items-center justify-center p-4 lg:p-8">
+<div class="glassmorphism-panel w-full h-full max-w-7xl mx-auto rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+<div class="p-4 lg:p-6 flex items-center justify-between border-b border-[var(--glassmorphism-border)] flex-shrink-0">
+<button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-[var(--text-primary)] text-xl lg:text-2xl font-poppins font-bold tracking-wider">Class 11 Chemistry</h2>
+<button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col lg:flex-row flex-grow min-h-0">
+<div class="w-full lg:w-1/4 border-b lg:border-b-0 lg:border-r border-[var(--glassmorphism-border)] p-4 lg:p-6 flex-shrink-0">
+<h3 class="font-poppins font-semibold text-center text-xl mb-6">Select a Branch</h3>
+<div class="flex lg:flex-col justify-center lg:justify-start gap-4">
+<div class="glassmorphism-panel flex-1 lg:flex-none p-4 rounded-2xl border border-[var(--glassmorphism-border)] cursor-pointer hover:border-[#138aec] transition-all">
+<div class="flex flex-col lg:flex-row items-center gap-4 text-center lg:text-left">
+<span class="text-5xl">⚗</span>
+<div>
+<p class="font-poppins text-base font-semibold">Physical</p>
+<p class="hidden lg:block text-xs text-[var(--text-secondary)]">Thermodynamics, Equilibrium...</p>
+</div>
+</div>
+</div>
+<div class="glowing-border flex-1 lg:flex-none rounded-2xl cursor-pointer">
+<div class="glassmorphism-panel border-transparent h-full p-4 rounded-2xl flex flex-col lg:flex-row items-center gap-4 text-center lg:text-left">
+<span class="text-5xl">🔬</span>
+<div>
+<p class="font-poppins text-base font-semibold text-[var(--text-primary)]">Inorganic</p>
+<p class="hidden lg:block text-xs text-[var(--text-secondary)]">s-Block, p-Block Elements...</p>
+</div>
+</div>
+</div>
+<div class="glassmorphism-panel flex-1 lg:flex-none p-4 rounded-2xl border border-[var(--glassmorphism-border)] cursor-pointer hover:border-[#138aec] transition-all">
+<div class="flex flex-col lg:flex-row items-center gap-4 text-center lg:text-left">
+<span class="text-5xl">🧪</span>
+<div>
+<p class="font-poppins text-base font-semibold text-[var(--text-primary)]">Organic</p>
+<p class="hidden lg:block text-xs text-[var(--text-secondary)]">Hydrocarbons, GOC...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-grow p-4 lg:p-6 flex flex-col min-h-0">
+<div class="flex justify-between items-center mb-6 flex-shrink-0">
+<h3 class="text-2xl lg:text-3xl font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-glow)] to-emerald-300">Inorganic Chemistry</h3>
+<button class="text-sm text-[var(--primary-glow)] font-semibold hidden lg:block">Back to Branches</button>
+</div>
+<div class="space-y-4 overflow-y-auto custom-scrollbar pr-2 flex-grow">
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Some Basic Concepts of Chemistry</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Introduction to fundamental chemical laws, molar mass, and stoichiometry.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)]">
+<button class="text-xs font-semibold bg-[var(--secondary-glow)] hover:bg-[var(--primary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Structure of Atom</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Discovery of subatomic particles, atomic models, and quantum numbers.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)]">
+<button class="text-xs font-semibold bg-[var(--secondary-glow)] hover:bg-[var(--primary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">Classification of Elements and Periodicity in Properties</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Modern periodic law, periodic trends in properties of elements.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)]">
+<button class="text-xs font-semibold bg-[var(--secondary-glow)] hover:bg-[var(--primary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">The Hydrogen and its Compounds</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Position in periodic table, isotopes, preparation, and properties.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)]">
+<button class="text-xs font-semibold bg-[var(--secondary-glow)] hover:bg-[var(--primary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">The s-Block Elements</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Group 1 and Group 2 elements, diagonal relationships.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)]">
+<button class="text-xs font-semibold bg-[var(--secondary-glow)] hover:bg-[var(--primary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">The p-Block Elements (Group 13 &amp; 14)</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">General introduction, trends in properties, and important compounds.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)]">
+<button class="text-xs font-semibold bg-[var(--secondary-glow)] hover:bg-[var(--primary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+<div class="chapter-card glassmorphism-panel p-4 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex-grow">
+<p class="font-poppins font-semibold leading-tight text-lg">The p-Block Elements (Group 15 &amp; 16)</p>
+<p class="text-[var(--text-secondary)] text-sm leading-tight mt-1">Electronic configuration, oxidation states, and properties of N, P, O, S.</p>
+</div>
+</div>
+<div class="flex items-center justify-start gap-2 pt-2 border-t border-[var(--glassmorphism-border)]">
+<button class="text-xs font-semibold bg-[var(--secondary-glow)] hover:bg-[var(--primary-glow)] transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">style</span>Flashcards</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">psychology</span>Mnemonics</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schema</span>Diagram</button>
+<button class="text-xs font-semibold bg-gray-700 hover:bg-gray-600 transition-colors px-3 py-1.5 rounded-md flex items-center gap-1.5"><span class="material-symbols-outlined text-base">vrpano</span>VR Lab</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

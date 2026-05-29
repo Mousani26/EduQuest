@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduQuest - Mathematics Chapter Preview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    :root {
+      --background-start-rgb: 16, 29, 35;
+      --background-end-rgb: 12, 21, 25;
+      --glass-bg: rgba(22, 38, 47, 0.5);
+      --border-color: rgba(49, 86, 104, 0.5);
+      --accent-blue: #0da6f2;
+      --text-primary: #ffffff;
+      --text-secondary: #90b7cb;
+      --card-bg: #223c49;
+      --card-bg-hover: #2a4a5c;
+    }
+    body {
+      background: radial-gradient(circle at top left, rgba(var(--background-start-rgb), 0.5), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(var(--accent-blue), 0.1), transparent 50%),
+                  #101d23;
+      backdrop-filter: blur(10px);
+    }
+    .font-poppins {
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-inter {
+      font-family: 'Inter', sans-serif;
+    }
+    .glass-panel {
+      background-color: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .glow-on-hover:hover {
+      box-shadow: 0 0 15px 0 var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+    .button-primary {
+      @apply bg-[var(--accent-blue)] text-white font-bold py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform hover:scale-105 glow-on-hover;
+    }
+    .button-secondary {
+      @apply bg-[var(--card-bg)] text-white font-semibold py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform hover:bg-[var(--card-bg-hover)] hover:scale-105;
+    }
+    .tool-card {
+      @apply bg-[var(--card-bg)] p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all duration-300 ease-in-out transform hover:bg-[var(--card-bg-hover)] hover:-translate-y-1 cursor-pointer border border-transparent hover:border-[var(--accent-blue)];
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-[var(--text-primary)] font-inter min-h-screen">
+<div class="fixed inset-0 bg-black/50 z-0"></div>
+<div class="relative z-10 p-4 min-h-screen flex flex-col glass-panel m-0">
+<header class="flex items-center justify-between mb-4">
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="font-poppins text-xl font-bold text-center">Linear Equations</h1>
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<nav class="text-[var(--text-secondary)] text-xs mb-6 px-2">
+      Home &gt; Class 10 &gt; Algebra &gt; Linear Equations
+    </nav>
+<main class="flex-grow space-y-8">
+<section>
+<p class="text-[var(--text-secondary)] leading-relaxed">
+          Explore the world of linear equations, where you'll learn to solve for unknowns and graph straight lines. This chapter covers everything from basic equations to systems of equations, with real-world applications.
+        </p>
+</section>
+<section class="grid grid-cols-3 gap-4 text-center">
+<div class="bg-black/20 p-3 rounded-lg">
+<p class="text-xs text-[var(--text-secondary)] mb-1">Difficulty</p>
+<p class="font-semibold">Medium</p>
+</div>
+<div class="bg-black/20 p-3 rounded-lg">
+<p class="text-xs text-[var(--text-secondary)] mb-1">Time</p>
+<p class="font-semibold">~2 hours</p>
+</div>
+<div class="bg-black/20 p-3 rounded-lg">
+<p class="text-xs text-[var(--text-secondary)] mb-1">Progress</p>
+<div class="w-full bg-[var(--border-color)] rounded-full h-1.5 mt-2">
+<div class="bg-[var(--accent-blue)] h-1.5 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</section>
+<section>
+<button class="button-primary text-lg">
+<span class="material-symbols-outlined">play_circle</span>
+              Start Learning
+          </button>
+</section>
+<section>
+<h2 class="font-poppins text-lg font-semibold mb-4">Learning Tools</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="tool-card col-span-2">
+<span class="material-symbols-outlined text-3xl text-[var(--accent-blue)]">view_in_ar</span>
+<span class="font-semibold">VR Lab</span>
+</div>
+<div class="tool-card">
+<span class="material-symbols-outlined text-3xl text-[var(--accent-blue)]">lightbulb</span>
+<span class="font-semibold">Mnemonics</span>
+</div>
+<div class="tool-card">
+<span class="material-symbols-outlined text-3xl text-[var(--accent-blue)]">style</span>
+<span class="font-semibold">Flashcards</span>
+</div>
+<div class="tool-card">
+<span class="material-symbols-outlined text-3xl text-[var(--accent-blue)]">account_tree</span>
+<span class="font-semibold">Flowcharts</span>
+</div>
+</div>
+</section>
+<section>
+<h2 class="font-poppins text-lg font-semibold mb-4">Assessments</h2>
+<div class="space-y-4">
+<button class="button-secondary">
+<span class="material-symbols-outlined">quiz</span>
+                Practice Questions
+            </button>
+<button class="button-secondary">
+<span class="material-symbols-outlined">timer</span>
+                Chapter Quiz
+            </button>
+</div>
+</section>
+</main>
+<footer class="h-5"></footer>
+</div>
+
+</body></html>

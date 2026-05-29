@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-50: #eef2ff;
+        --primary-100: #e0e7ff;
+        --primary-200: #c7d2fe;
+        --primary-300: #a5b4fc;
+        --primary-400: #818cf8;
+        --primary-500: #6366f1;
+        --primary-600: #4f46e5;
+        --primary-700: #4338ca;
+        --primary-800: #3730a3;
+        --primary-900: #312e81;
+        --primary-950: #1e1b4b;
+      }
+      .glow {
+        box-shadow: 0 0 5px theme('colors.purple.400'), 0 0 10px theme('colors.purple.400'), 0 0 15px theme('colors.purple.400');
+      }
+       .card-glow:hover {
+        box-shadow: 0 0 10px theme('colors.cyan.400'), 0 0 20px theme('colors.cyan.400');
+      }
+      .button-glow {
+        box-shadow: 0 0 5px #460df2, 0 0 10px #460df2;
+        transition: box-shadow 0.3s ease-in-out;
+      }
+      .button-glow:hover {
+        box-shadow: 0 0 10px #460df2, 0 0 20px #460df2, 0 0 30px #460df2;
+      }
+      .neon-border {
+        border: 2px solid theme('colors.cyan.400');
+        box-shadow: 0 0 5px theme('colors.cyan.400'), 0 0 10px theme('colors.cyan.400') inset;
+        animation: pulse 2s infinite;
+      }
+       @keyframes pulse {
+        0% {
+          box-shadow: 0 0 5px theme('colors.cyan.400'), 0 0 10px theme('colors.cyan.400') inset;
+        }
+        50% {
+          box-shadow: 0 0 10px theme('colors.cyan.400'), 0 0 20px theme('colors.cyan.400') inset;
+        }
+        100% {
+           box-shadow: 0 0 5px theme('colors.cyan.400'), 0 0 10px theme('colors.cyan.400') inset;
+        }
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0D0819] text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col dark justify-between group/design-root overflow-x-hidden" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+<div>
+<div class="relative @container">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/30 via-purple-900/30 to-black/30 z-0"></div>
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 z-0"></div>
+<div class="relative z-10">
+<div class="flex min-h-[400px] flex-col gap-6 items-center justify-center p-4 text-center" style='background-image: linear-gradient(to top, rgba(13, 8, 25, 1) 0%, rgba(13, 8, 25, 0) 100%), linear-gradient(rgba(21, 16, 35, 0.5) 0%, rgba(21, 16, 35, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcK2QHvzVlqCNv90XFUYq-V2wVma85ilZhXjnm0wAA-1bPVfj_1IA0Z22fqmR5FbtOnfISsyyE_kvgus9m6KL4QhQ-3Ccj9exFjzRNRaPhUopdXGTR0g770zmaB8U5tS1v8-ly0Ui6frhOMGsNaths22ScbzY79KQyaj4-49PQFZ9S_DYvDWCq9_uqkhhvwde2DXJURIc4bnW9Cerv15_hZYlk47izig4U0HrZhvyOnTp_zYRVZLFmrr5s1phXcU0YhBNYVQFEpKxc"); background-size: cover; background-position: center;'>
+<h1 class="text-white text-5xl font-black tracking-tighter" style="text-shadow: 0 0 10px rgba(70, 13, 242, 0.7), 0 0 20px rgba(70, 13, 242, 0.5);">
+<span class="text-6xl">🎓</span> Unlock Your Future with Scholarships
+              </h1>
+<p class="max-w-2xl text-lg text-purple-200/80">Explore thousands of scholarships to fund your education and achieve your dreams. Our platform connects you with opportunities from around the world.</p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[#460df2] text-white text-base font-bold tracking-wider uppercase button-glow">
+<span class="truncate">Explore Now</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sticky top-0 z-20 bg-[#0D0819]/80 backdrop-blur-sm">
+<div class="flex overflow-x-auto border-b border-[#3f3168] px-4">
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-[#460df2] text-white px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Overview</p>
+</a>
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-transparent text-purple-300/70 px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">National</p>
+</a>
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-transparent text-purple-300/70 px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">International</p>
+</a>
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-transparent text-purple-300/70 px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Government</p>
+</a>
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-transparent text-purple-300/70 px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Private</p>
+</a>
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-transparent text-purple-300/70 px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Apply</p>
+</a>
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-transparent text-purple-300/70 px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Results</p>
+</a>
+<a class="flex flex-col items-center justify-center whitespace-nowrap border-b-[3px] border-b-transparent text-purple-300/70 px-4 pb-[13px] pt-4 transition-all duration-300 hover:text-cyan-300 hover:border-b-cyan-300" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Tips</p>
+</a>
+</div>
+</div>
+<div class="p-4 grid gap-8">
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl overflow-hidden transition-all duration-300 card-glow">
+<div class="h-48 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDz7j_y9LOjIMoCcHfAXVIYoZS0LheRUt3bh61_3esGSFb7pae5neZg_m7CAEPDa2Y8VhTQUbeaTthjKrO24WE7Stv3nI61xYnQ0VOysJAz2_ahDFSBW-sVvtdkqEXABwnAtN233GDHlkLcJkHS5dXiR4wahGaSrXh3HCrKcKhe0Vi_otIsoEAO84s5FkYirSDybOpBZgV3AblJi9MEKz1ooKgMrr1nyEGDxXnRGAbzt6gMqMw5S6OXQgB7C7J84zN9Vsc4JNpjV1QE");'></div>
+<div class="p-5">
+<div class="flex items-start justify-between">
+<h3 class="text-2xl font-bold text-cyan-300" style="text-shadow: 0 0 5px theme('colors.cyan.500');">🎓 Merit Scholarship</h3>
+<span class="text-lg font-bold text-yellow-400">$20,000</span>
+</div>
+<p class="text-purple-200/80 mt-2">Eligibility: GPA 3.8+, Benefits: Full tuition, Deadline: July 15. <a class="text-cyan-400 hover:underline" href="#">Official Link</a></p>
+<button class="w-full mt-4 flex items-center justify-center rounded-lg h-11 px-5 bg-[#460df2] text-white text-base font-bold button-glow"><span class="truncate">Apply Now</span></button>
+</div>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl overflow-hidden transition-all duration-300 card-glow">
+<div class="h-48 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiE9HRJdDpIKKDNJFzxkJPnGi02tU2ip5m_p2oF55aSaLmLITzrY_OxSuvmNIrybSM-ExfdxiVbi3nsa3GkpJHqTVVxJ_bhPblhibhXYgheay788_DJ5y1wFfEiuJUKG0w0K_nZgXmwGZFRNQ0TcKwohIkEQeCUrbFneyKeRqIv0_9Er_JCYieI1bISYzPAifDnZSbxRQtgHjIf8o49KG-UCa6JjERR7v8YR-k-o6SV8lC4BiVytnDrPMUrpe2rLNM4VOiGS3FpwsC");'></div>
+<div class="p-5">
+<div class="flex items-start justify-between">
+<h3 class="text-2xl font-bold text-cyan-300" style="text-shadow: 0 0 5px theme('colors.cyan.500');">🌍 Global Excellence</h3>
+<span class="text-lg font-bold text-yellow-400">$15,000</span>
+</div>
+<p class="text-purple-200/80 mt-2">Eligibility: International students, Benefits: Partial tuition, Deadline: August 30. <a class="text-cyan-400 hover:underline" href="#">Official Link</a></p>
+<button class="w-full mt-4 flex items-center justify-center rounded-lg h-11 px-5 bg-[#460df2] text-white text-base font-bold button-glow"><span class="truncate">Apply Now</span></button>
+</div>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl overflow-hidden transition-all duration-300 card-glow">
+<div class="h-48 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRr_7T1E5VUiSWs3rkdYMCk42ZTK6LsKXs6JtorRRTdXRm6P35shWLUuP_TtbMl2f4oFBUKjWBFIgTbp79QSVm-ghAjrRgTQ8Ri5oZkhyG5-LX7RUo_efD0eEaURptCHpAYX0Bm5B87wHqy5c3RDWuyHq8366he4OpTUibYMOlorZ6-yGHoCT-bsalhYZbs5l1Ut_ZnaqW8p1CqXIgCKAI-z2Aw7cVqHU_-GgYFA0Ohr0FZVHMbNH7X1O3cXHV-9JJyW2hkLQQ2y");'></div>
+<div class="p-5">
+<div class="flex items-start justify-between">
+<h3 class="text-2xl font-bold text-cyan-300" style="text-shadow: 0 0 5px theme('colors.cyan.500');">🏛 Government Grant</h3>
+<span class="text-lg font-bold text-yellow-400">$10,000</span>
+</div>
+<p class="text-purple-200/80 mt-2">Eligibility: Low-income students, Benefits: Living expenses, Deadline: June 1. <a class="text-cyan-400 hover:underline" href="#">Official Link</a></p>
+<button class="w-full mt-4 flex items-center justify-center rounded-lg h-11 px-5 bg-[#460df2] text-white text-base font-bold button-glow"><span class="truncate">Apply Now</span></button>
+</div>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl overflow-hidden transition-all duration-300 card-glow">
+<div class="h-48 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgCxIxk5tBmeClBqR_puUzvaLp5XzOuu00ZAIREHF5bXrjdYa-A7IgrNM9-jCjnuemKGGkyulwjipvu5R1VFg0OptmEA5g7VJOL6cy_YQXP3RN7pCzTtNFZUaWWP6SrH6p5Tp5wiaTs-NDwWQwzKgvD8lx54F_z9CVNyCWnphQzbRYJB07zFwNhxtsniNpCR5a5NyhJvRRWDnQDWB2mdnGQ5ZJADavj46KSQBJEzGxoLxY3YC24hLg9ureBOY3Sps38ID5bqekMy9c");'></div>
+<div class="p-5">
+<div class="flex items-start justify-between">
+<h3 class="text-2xl font-bold text-cyan-300" style="text-shadow: 0 0 5px theme('colors.cyan.500');">💡 Private Sector</h3>
+<span class="text-lg font-bold text-yellow-400">$5,000</span>
+</div>
+<p class="text-purple-200/80 mt-2">Eligibility: STEM majors, Benefits: Internship, Deadline: May 15. <a class="text-cyan-400 hover:underline" href="#">Official Link</a></p>
+<button class="w-full mt-4 flex items-center justify-center rounded-lg h-11 px-5 bg-[#460df2] text-white text-base font-bold button-glow"><span class="truncate">Apply Now</span></button>
+</div>
+</div>
+</div>
+<div class="px-4 py-8 grid gap-8">
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl p-5 neon-border">
+<h2 class="text-2xl font-bold text-cyan-300 mb-4" style="text-shadow: 0 0 5px theme('colors.cyan.500');">Upcoming Deadlines</h2>
+<ul class="space-y-3">
+<li class="flex justify-between items-center text-purple-200/80"><span>Merit Scholarship</span> <span class="font-semibold text-white">July 15</span></li>
+<li class="flex justify-between items-center text-purple-200/80"><span>Global Excellence Scholarship</span> <span class="font-semibold text-white">August 30</span></li>
+<li class="flex justify-between items-center text-purple-200/80"><span>Government Grant</span> <span class="font-semibold text-white">June 1</span></li>
+</ul>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl p-5">
+<h2 class="text-2xl font-bold text-cyan-300 mb-4" style="text-shadow: 0 0 5px theme('colors.cyan.500');">Trending Scholarships</h2>
+<ul class="space-y-3">
+<li class="text-purple-200/80 hover:text-white transition-colors duration-300"><a href="#">Tech Innovators Award</a></li>
+<li class="text-purple-200/80 hover:text-white transition-colors duration-300"><a href="#">Future Leaders Program</a></li>
+</ul>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl p-5">
+<h2 class="text-2xl font-bold text-cyan-300 mb-4" style="text-shadow: 0 0 5px theme('colors.cyan.500');">Saved Applications</h2>
+<ul class="space-y-3">
+<li class="text-purple-200/80 hover:text-white transition-colors duration-300"><a href="#">Tech Innovators Award</a></li>
+<li class="text-purple-200/80 hover:text-white transition-colors duration-300"><a href="#">Future Leaders Program</a></li>
+</ul>
+</div>
+<div class="grid grid-cols-1 @md:grid-cols-2 gap-8">
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl p-5">
+<h2 class="text-2xl font-bold text-cyan-300 mb-4" style="text-shadow: 0 0 5px theme('colors.cyan.500');">Tips &amp; Tricks</h2>
+<ul class="space-y-3 list-disc list-inside text-purple-200/80">
+<li><a class="hover:text-white" href="#">Essay Guidance</a></li>
+<li><a class="hover:text-white" href="#">Document Checklist</a></li>
+<li><a class="hover:text-white" href="#">Interview Prep</a></li>
+</ul>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl p-5">
+<h2 class="text-2xl font-bold text-cyan-300 mb-4" style="text-shadow: 0 0 5px theme('colors.cyan.500');">Resources &amp; Practice</h2>
+<ul class="space-y-3 list-disc list-inside text-purple-200/80">
+<li><a class="hover:text-white" href="#">Sample Application Forms</a></li>
+<li><a class="hover:text-white" href="#">Mock Interview VR Room</a></li>
+<li><a class="hover:text-white" href="#">FAQs</a></li>
+</ul>
+</div>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl p-5 flex items-center justify-between">
+<div>
+<h2 class="text-2xl font-bold text-cyan-300 mb-2" style="text-shadow: 0 0 5px theme('colors.cyan.500');">Success Stories</h2>
+<p class="text-purple-200/80">VR Showcase of Past Winners</p>
+</div>
+<button class="flex items-center justify-center rounded-full h-16 w-16 bg-[#460df2] text-white text-4xl button-glow">
+<span class="material-symbols-outlined text-4xl">vrpano</span>
+</button>
+</div>
+<div class="bg-slate-900/50 backdrop-blur-xl border border-purple-800/50 rounded-2xl p-5 flex items-center justify-between">
+<div>
+<h2 class="text-2xl font-bold text-cyan-300 mb-2" style="text-shadow: 0 0 5px theme('colors.cyan.500');">Scholarship Quiz</h2>
+<p class="text-purple-200/80">Find scholarships that match you</p>
+</div>
+<button class="flex items-center justify-center rounded-lg h-12 px-6 bg-cyan-500/80 text-white font-bold uppercase tracking-wider button-glow" style="box-shadow: 0 0 5px theme('colors.cyan.500'), 0 0 10px theme('colors.cyan.500');">Start Quiz</button>
+</div>
+</div>
+</div>
+<footer class="bg-[#0D0819] border-t border-purple-800/50 mt-8 py-4">
+<div class="container mx-auto text-center text-purple-300/60 text-sm">
+<p>© 2024 EduQuest. All rights reserved.</p>
+<p>Your journey to a brighter future starts here.</p>
+</div>
+</footer>
+</div>
+
+</body></html>
